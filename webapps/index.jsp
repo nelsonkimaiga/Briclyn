@@ -86,8 +86,13 @@ catch(Exception e)
                         <fieldset>
                             <label>Property Type</label>
                             <select name="property_type" onChange="javascript:disable_combo(this.value,'frm_first');">
+                                           <%
+                                               while (rsProperty.next())
+                                               {
+                                           %>
                                 <option value="<%=rsProperty.getInt("iPropertyID") %>"><%=rsProperty.getString("sPropertyName")%></option>
-
+      <%}
+      %>
                             </select>
                         </fieldset>
                     </form>
