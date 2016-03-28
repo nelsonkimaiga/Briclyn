@@ -95,6 +95,47 @@ catch(Exception e)
       %>
                             </select>
                         </fieldset>
+                            <fieldset>
+                                <label>City</label>
+                                <select name="iCityID">
+                                          <%
+     while (rsCity.next())
+     {
+      %>
+                                    <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
+                                          <%
+      }
+      %>
+                                </select>
+                            </fieldset>
+                                <fieldset>
+                                    <label>Location</label>
+                                    <select name="iLocation">
+                                        <option value="null" selected>Select Location</option>
+                                              <%
+       while (rsLocation.next())
+     {
+      %>
+                                        <option value="<%=rsLocation.getInt("iLocationID") %>"><%=rsLocation.getString("iLocationName")%></option>
+                                              <%
+      }
+      %>
+                                    </select>
+                                </fieldset>
+                                    <fieldset>
+                                        <label>Budget</label>
+                                        <select name="budget">
+                                            <option value="">-- Select Budget --</option>
+                                            <%
+                                                while(rsOptions.next())
+                                                {
+                                            %>
+                                            <option value="<%=rsOptions.getInt("iBudgetID")%>"><%=rsOptions.getString("sBudgetName")%></option>
+                                            <%}
+                                            %>
+                                        </select>
+                                    </fieldset>
+                                        <button type="submit" class="button success">Search</button>
                     </form>
                 </div>
             </div>
