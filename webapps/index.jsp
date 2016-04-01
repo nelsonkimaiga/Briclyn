@@ -98,6 +98,7 @@ catch(Exception e)
                             <fieldset>
                                 <label>City</label>
                                 <select name="iCityID">
+                                    <option value="default" selected>Select City</option>
                                           <%
      while (rsCity.next())
      {
@@ -125,7 +126,7 @@ catch(Exception e)
                                     <fieldset>
                                         <label>Budget</label>
                                         <select name="budget">
-                                            <option value="">-- Select Budget --</option>
+                                            <option value="" selected disabled>-- Select Budget --</option>
                                             <%
                                                 while(rsOptions.next())
                                                 {
