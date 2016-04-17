@@ -148,7 +148,7 @@ catch(Exception e)
                                         <option value="11"  >10+</option>
                                     </select>
                                 </fieldset>
-                                <button type="submit" class="button secondary" name="Submit" value="Search"></button>
+                                <button type="submit" class="button secondary" name="Submit" value="Search">Search</button>
                                     </form>
                 </div>                                                                              
                                     <form name="lForm" method="post" action="doLogin.jsp">
