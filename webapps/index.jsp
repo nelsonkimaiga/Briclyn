@@ -68,83 +68,89 @@ catch(Exception e)
         </script>
     </head>
     <body>
-
-                <img src="images/logo.jpg" />
-                <%@include file="/comman/menu.jsp"%>
-                <
-                        <form name="fSearch" method="post" action="searchRes.jsp">
-
-                                           
-                                                    <h5 class="hdng">Search your property</h5>
-                                                Transaction Type:
-                                                    <select  name="tranType">
-                                                            <option value="1">Buy</option>
-                                                            <option value="2">Rent/Lease</option>
-                                                        </select>
-                                   Property Type
-                                   <select name="property_type" class="textbox" style="width:150px;" onChange="javascript:disable_combo(this.value,'frm_first');">
-                                                            <%
-                                                                while (rsProperty.next())
-                                                                {
-                                                            %>
-                                                            <option value="<%=rsProperty.getInt("iPropertyID") %>"><%=rsProperty.getString("sPropertyName")%></option>
-                                                            <%}
-                                                            %>
-                                                        </select>
-                                                        City
-                                                        <select name="iCityID" class="smalltextbox">
-                                                                    <option value="" >-- Select City --</option>
-                                                                    <%
-                                                                        while (rsCity.next())
-                                                                        {
-                                                                    %>
-                                                                    <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
-                                                                    <%}
-                                                                    %>
-                                                                </select>
-                                                                Location:
-                                                                <select name="iLocation" class="smalltextbox" id="iLocation" style="width:150px;">
-                                                                            <option value="" >-- Select Location --</option>
-                                                                            <%
-                                                                                while (rsLocation.next())
-                                                                                {
-                                                                            %>
-                                                                            <option value="<%=rsLocation.getInt("iLocationID") %>"><%=rsLocation.getString("iLocationName")%></option>
-                                                                            <%}
-                                                                            %>
-                                                                        </select>
-                                                                        Budget:
-                                                                                <select name="budget">
-                                                                                    <option value="">-- Select Budget --</option>
-                                                                                    <%
-                                                                                        while(rsOptions.next())
-	{
-                                                                                    %>
-                                                                                    <option value="<%=rsOptions.getInt("iBudgetID")%>"><%=rsOptions.getString("sBudgetName")%></option>
-                                                                                    <%}
-	%>
-                                                                                </select>
-                                                                                
-                                                                                Minimum Bedroom:</td>
-                                                                                   <select name='bedroom' class='textbox' style="width:100px" >
-                                                                                            <option value="">Bed Room</option>
-                                                                                            <option value="1"  >1</option>
-                                                                                            <option value="2"  >2</option>
-                                                                                            <option value="3"  >3</option>
-                                                                                            <option value="4"  >4</option>
-                                                                                            <option value="5"  >5</option>
-                                                                                            <option value="6"  >6</option>
-                                                                                            <option value="7"  >7</option>
-                                                                                            <option value="8"  >8</option>
-                                                                                            <option value="9"  >9</option>
-                                                                                            <option value="10"  >10</option>
-                                                                                            <option value="11"  >10+</option>
-                                                                                        </select>
-                                                                                    <input type="submit" name="Submit" value="Search" />
+        <img src="images/logo.jpg" />
+        <%@include file="/comman/menu.jsp"%>
+        <div class="large-6 large-centered columns">
+            <form name="fSearch" method="post" action="searchRes.jsp">
+                <h5 class="hdng">Search your property</h5>
+                <fieldset>
+                    <label>Transaction Type</label>
+                    <select  name="tranType">
+                        <option value="1">Buy</option>
+                        <option value="2">Rent/Lease</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <label>Property Type</label>
+                    <select name="property_type" class="textbox" onChange="javascript:disable_combo(this.value,'frm_first');">
+                        <%
+                            while (rsProperty.next())
+                            {
+                        %>
+                        <option value="<%=rsProperty.getInt("iPropertyID") %>"><%=rsProperty.getString("sPropertyName")%></option>
+                        <%}
+%>
+                    </select>
+                </fieldset>
+                    <fieldset>
+                        <label>City</label>
+                        <select name="iCityID" class="smalltextbox">
+                            <option value="" >-- Select City --</option>
+                            <%
+                                while (rsCity.next())
+                                {
+                            %>
+                            <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
+                            <%}
+                            %>
+                        </select>
+                    </fieldset>
+                        <fieldset>
+                            <label>Location</label>
+                            <select name="iLocation" class="smalltextbox" id="iLocation">
+                                <option value="" >-- Select Location --</option>
+                                <%
+                                    while (rsLocation.next())
+                                    {
+                                %>
+                                <option value="<%=rsLocation.getInt("iLocationID") %>"><%=rsLocation.getString("iLocationName")%></option>
+                                <%}
+                                %>
+                            </select>
+                        </fieldset>
+                            <fieldset>
+                                <label>Budget</label>
+                                <select name="budget">
+                                    <option value="">-- Select Budget --</option>
+                                    <%
+                                        while(rsOptions.next())
+                                        {
+                                    %>
+                                    <option value="<%=rsOptions.getInt("iBudgetID")%>"><%=rsOptions.getString("sBudgetName")%></option>
+                                    <%}
+                                    %>
+                                </select>
+                            </fieldset>
+                                <fieldset>
+                                    <label>Minimum Bedroom</label>
+                                    <select name='bedroom' class='textbox'>
+                                        <option value="">Bed Room</option>
+                                        <option value="1"  >1</option>
+                                        <option value="2"  >2</option>
+                                        <option value="3"  >3</option>
+                                        <option value="4"  >4</option>
+                                        <option value="5"  >5</option>
+                                        <option value="6"  >6</option>
+                                        <option value="7"  >7</option>
+                                        <option value="8"  >8</option>
+                                        <option value="9"  >9</option>
+                                        <option value="10"  >10</option>
+                                        <option value="11"  >10+</option>
+                                    </select>
+                                </fieldset>
+                                <button type="submit" class="button secondary" name="Submit" value="Search"></button>
                                     </form>
-                                </td>
-                                <td width="2%">&nbsp;</td>
-                                <td width="46%" valign="top">
+                </div>                                                                              
                                     <form name="lForm" method="post" action="doLogin.jsp">
                                         <div id="login" >
                                             <b class="rlogintop">
