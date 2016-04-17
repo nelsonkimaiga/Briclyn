@@ -39,7 +39,6 @@ catch(Exception e)
 {}
 
  %>
-
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
@@ -50,6 +49,8 @@ catch(Exception e)
         <!--foundation zurb-->
         <link rel="stylesheet" href="css/foundation.css" />
         <link type="text/css" rel="StyleSheet" href="css/style.css"/>
+        <!--fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
         <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
         <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
         <script>
@@ -91,11 +92,14 @@ catch(Exception e)
                 <tr>
                     <td>&nbsp;</td>
                     <td>
-                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tr>
-                                <td width="52%" valign="top"><form name="fSearch" method="post" action="searchRes.jsp">
+                                    <form name="fSearch" method="post" action="searchRes.jsp">
                                         <div id="rnds">
-                                            <b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+                                            <b class="rtop">
+                                                <b class="r1"></b>
+                                                <b class="r2"></b>
+                                                <b class="r3"></b>
+                                                <b class="r4"></b>                                                  
+                                            </b>
                                             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                 <tr>
                                                     <td>&nbsp;</td>
@@ -235,48 +239,55 @@ catch(Exception e)
                                                                                     <td>&nbsp;</td>
                                                                                 </tr>
                                             </table>
-                                            <b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b>
+                                            <b class="rbottom">
+                                                <b class="r4"></b>
+                                                <b class="r3"></b>
+                                                <b class="r2"></b>
+                                                <b class="r1"></b>                                                    
+                                            </b>
                                         </div>
                                     </form>
                                 </td>
-                                                                                <td width="2%">&nbsp;</td>
-                                                                                <td width="46%" valign="top">
-                                                                                    <form name="lForm" method="post" action="doLogin.jsp">
-                                                                                        <div id="login" >
-                                                                                            <b class="rlogintop"><b class="rlogin1"></b><b class="rlogin2"></b><b class="rlogin3"></b><b class="rlogin4"></b></b>
-                                                                                            <div id="s3" class="pics" style="height:280px" align="center">
-                                                                                                <img src="images/logo1.jpg" width="368" height="281" />
-                                                                                                <img src="images/logo2.jpg" width="368" height="281" />
-                                                                                                <img src="images/logo3.jpg" width="368" height="281" />
-                                                                                                <img src="images/logo4.jpg" width="368" height="281" />
-                                                                                                <img src="images/logo5.jpg" width="368" height="281" />
-                                                                                            </div>
-                                                                                            <b class="rloginbottom"><b class="rlogin4"></b><b class="rlogin3"></b><b class="rlogin2"></b><b class="rlogin1"></b></b>
-                                                                                        </div>
-                                                                                    </form>
-                                                                                </td>
-                            </tr>
-                        </table>
+                                <td width="2%">&nbsp;</td>
+                                <td width="46%" valign="top">
+                                    <form name="lForm" method="post" action="doLogin.jsp">
+                                        <div id="login" >
+                                            <b class="rlogintop">
+                                                <b class="rlogin1"></b>
+                                                <b class="rlogin2"></b>
+                                                <b class="rlogin3"></b>
+                                                <b class="rlogin4"></b>                                                    
+                                            </b>
+                                            <div id="s3" class="pics" style="height:280px" align="center">
+                                            </div>
+                                            <b class="rloginbottom">
+                                                <b class="rlogin4"></b>
+                                                <b class="rlogin3"></b>
+                                                <b class="rlogin2"></b>
+                                                <b class="rlogin1"></b></b>
+                                        </div>
+                                    </form>
                     </td>
-                                                                                <td>&nbsp;</td>
+                    <td>&nbsp;</td>
                 </tr>
-                                                                                <tr>
-                                                                                    <td>&nbsp;</td>
-                                                                                    <td>&nbsp;</td>
-                                                                                    <td>&nbsp;</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>&nbsp;</td>
-                                                                                    <td>&nbsp;</td>
-                                                                                    <td>&nbsp;</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td>&nbsp;</td>
-                                                                                    <td>&nbsp;</td>
-                                                                                    <td>&nbsp;</td>
-                                                                                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+               <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                </tr>
         </table>
-                                                                                <script>callETabID('0')</script>
+                                                                                <script type="text/javascript">
+                                                                                    callETabID('0')</script>
         <script src="js/vendor/jquery.min.js"></script>
         <script src="js/vendor/what-input.min.js"></script>
         <script src="js/foundation.min.js"></script>
