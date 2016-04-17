@@ -68,66 +68,21 @@ catch(Exception e)
         </script>
     </head>
     <body>
-        <table width="100%" border="0" cellspacing="0" cellpadding="0">
-            <tr>
-                <td width="7%">&nbsp;</td>
-                <td width="82%">&nbsp;</td>
-                <td width="11%">&nbsp;</td>
-            </tr>
-            <tr>
-                <td valign="top">&nbsp;</td>
-                <td valign="top" align="left"><img src="images/logo.jpg" /></td>
-                <td valign="top">&nbsp;</td>
-            </tr>
-            <tr>
-                <td valign="top">&nbsp;</td>
-                <td valign="top">&nbsp;</td>
-                <td valign="top">&nbsp;</td>
-            </tr>
-            <tr>
-                <td valign="top">&nbsp;</td>
-                <td valign="top"><%@include file="/comman/menu.jsp"%></td>
-                <td valign="top">&nbsp;</td>
-            </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>
-                                    <form name="fSearch" method="post" action="searchRes.jsp">
-                                        <div id="rnds">
-                                            <b class="rtop">
-                                                <b class="r1"></b>
-                                                <b class="r2"></b>
-                                                <b class="r3"></b>
-                                                <b class="r4"></b>                                                  
-                                            </b>
-                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                                <tr>
-                                                    <td>&nbsp;</td>
-                                                    <td colspan="2"><h5 class="hdng">Search your property</h5></td>
-                                                </tr>
-                                                <tr>
-                                                    <td width="9%" bordercolor="#000033">&nbsp;</td>
-                                                    <td width="28%" bordercolor="#000033">&nbsp;</td>
-                                                    <td width="63%">&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                    <td bordercolor="#000033">Transaction Type:</td>
-                                                    <td><select  name="tranType">
+
+                <img src="images/logo.jpg" />
+                <%@include file="/comman/menu.jsp"%>
+                <
+                        <form name="fSearch" method="post" action="searchRes.jsp">
+
+                                           
+                                                    <h5 class="hdng">Search your property</h5>
+                                                Transaction Type:
+                                                    <select  name="tranType">
                                                             <option value="1">Buy</option>
                                                             <option value="2">Rent/Lease</option>
                                                         </select>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                    <td>&nbsp;</td>
-                                                </tr>
-                                                <tr>
-                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                    <td bordercolor="#000033">Property Type</td>
-                                                    <td><select name="property_type" class="textbox" style="width:150px;" onChange="javascript:disable_combo(this.value,'frm_first');">
+                                   Property Type
+                                   <select name="property_type" class="textbox" style="width:150px;" onChange="javascript:disable_combo(this.value,'frm_first');">
                                                             <%
                                                                 while (rsProperty.next())
                                                                 {
@@ -135,17 +90,9 @@ catch(Exception e)
                                                             <option value="<%=rsProperty.getInt("iPropertyID") %>"><%=rsProperty.getString("sPropertyName")%></option>
                                                             <%}
                                                             %>
-                                                        </select></td>
-                                                </tr>
-                                                        <tr>
-                                                            <td bordercolor="#000033">&nbsp;</td>
-                                                            <td bordercolor="#000033">&nbsp;</td>
-                                                            <td>&nbsp;</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td bordercolor="#000033">&nbsp;</td>
-                                                            <td bordercolor="#000033">City:<br /></td>
-                                                            <td><select name="iCityID" class="smalltextbox">
+                                                        </select>
+                                                        City
+                                                        <select name="iCityID" class="smalltextbox">
                                                                     <option value="" >-- Select City --</option>
                                                                     <%
                                                                         while (rsCity.next())
@@ -154,17 +101,9 @@ catch(Exception e)
                                                                     <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
                                                                     <%}
                                                                     %>
-                                                                </select></td>
-                                                        </tr>
-                                                                <tr>
-                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                    <td>&nbsp;</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                    <td bordercolor="#000033">Location:<br /></td>
-                                                                    <td><select name="iLocation" class="smalltextbox" id="iLocation" style="width:150px;">
+                                                                </select>
+                                                                Location:
+                                                                <select name="iLocation" class="smalltextbox" id="iLocation" style="width:150px;">
                                                                             <option value="" >-- Select Location --</option>
                                                                             <%
                                                                                 while (rsLocation.next())
@@ -173,17 +112,8 @@ catch(Exception e)
                                                                             <option value="<%=rsLocation.getInt("iLocationID") %>"><%=rsLocation.getString("iLocationName")%></option>
                                                                             <%}
                                                                             %>
-                                                                        </select></td>
-                                                                </tr>
-                                                                        <tr>
-                                                                            <td bordercolor="#000033">&nbsp;</td>
-                                                                            <td bordercolor="#000033">&nbsp;</td>
-                                                                            <td>&nbsp;</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td bordercolor="#000033">&nbsp;</td>
-                                                                            <td bordercolor="#000033">Budget:</td>
-                                                                            <td>
+                                                                        </select>
+                                                                        Budget:
                                                                                 <select name="budget">
                                                                                     <option value="">-- Select Budget --</option>
                                                                                     <%
@@ -193,17 +123,10 @@ catch(Exception e)
                                                                                     <option value="<%=rsOptions.getInt("iBudgetID")%>"><%=rsOptions.getString("sBudgetName")%></option>
                                                                                     <%}
 	%>
-                                                                                </select></td>
-                                                                        </tr>
-                                                                                <tr>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td >&nbsp;</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td bordercolor="#000033">Minimum Bedroom:</td>
-                                                                                    <td><select name='bedroom' class='textbox' style="width:100px" >
+                                                                                </select>
+                                                                                
+                                                                                Minimum Bedroom:</td>
+                                                                                   <select name='bedroom' class='textbox' style="width:100px" >
                                                                                             <option value="">Bed Room</option>
                                                                                             <option value="1"  >1</option>
                                                                                             <option value="2"  >2</option>
@@ -216,36 +139,8 @@ catch(Exception e)
                                                                                             <option value="9"  >9</option>
                                                                                             <option value="10"  >10</option>
                                                                                             <option value="11"  >10+</option>
-                                                                                        </select></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td>&nbsp;</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td>&nbsp;</td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td><input type="submit" name="Submit" value="Search" /></td>
-                                                                                </tr>
-                                                                                <tr>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td bordercolor="#000033">&nbsp;</td>
-                                                                                    <td>&nbsp;</td>
-                                                                                </tr>
-                                            </table>
-                                            <b class="rbottom">
-                                                <b class="r4"></b>
-                                                <b class="r3"></b>
-                                                <b class="r2"></b>
-                                                <b class="r1"></b>                                                    
-                                            </b>
-                                        </div>
+                                                                                        </select>
+                                                                                    <input type="submit" name="Submit" value="Search" />
                                     </form>
                                 </td>
                                 <td width="2%">&nbsp;</td>
@@ -267,26 +162,7 @@ catch(Exception e)
                                                 <b class="rlogin1"></b></b>
                                         </div>
                                     </form>
-                    </td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-               <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-        </table>
-                                                                                <script type="text/javascript">
+                                                    <script type="text/javascript">
                                                                                     callETabID('0')</script>
         <script src="js/vendor/jquery.min.js"></script>
         <script src="js/vendor/what-input.min.js"></script>
