@@ -149,27 +149,11 @@ catch(Exception e)
                                     </select>
                                 </fieldset>
                                 <button type="submit" class="button secondary" name="Submit" value="Search">Search</button>
-                                    </form>
-                </div>                                                                              
-                                    <form name="lForm" method="post" action="doLogin.jsp">
-                                        <div id="login" >
-                                            <b class="rlogintop">
-                                                <b class="rlogin1"></b>
-                                                <b class="rlogin2"></b>
-                                                <b class="rlogin3"></b>
-                                                <b class="rlogin4"></b>                                                    
-                                            </b>
-                                            <div id="s3" class="pics" style="height:280px" align="center">
-                                            </div>
-                                            <b class="rloginbottom">
-                                                <b class="rlogin4"></b>
-                                                <b class="rlogin3"></b>
-                                                <b class="rlogin2"></b>
-                                                <b class="rlogin1"></b></b>
-                                        </div>
-                                    </form>
-                                                    <script type="text/javascript">
-                                                                                    callETabID('0')</script>
+            </form>
+        </div>
+                                <script type="text/javascript">
+                                    callETabID('0')
+                                                                    </script>
         <script src="js/vendor/jquery.min.js"></script>
         <script src="js/vendor/what-input.min.js"></script>
         <script src="js/foundation.min.js"></script>
