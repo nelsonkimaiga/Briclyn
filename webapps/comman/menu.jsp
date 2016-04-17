@@ -9,12 +9,12 @@
 <%
     String status="Login";
     String fileCall="login.jsp";
-    String usersessionid=nullconv((String)session.getAttribute("username"));
-    if(!(usersessionid).equals(""))
+    String sSessonUserID=nullconv((String)session.getAttribute("sUserID"));
+    if(!(sSessonUserID).equals(""))
     {
         status="Logout";
         fileCall="logout.jsp";
-        usersessionid="Hi!  "+nullconv((String)session.getAttribute("username"));
+        sSessonUserID="Hi!  "+nullconv((String)session.getAttribute("sUsername"));
     }
 %>
 <div class="top-bar">
@@ -25,7 +25,7 @@
             <li><a href="index.jsp">Home</a></li>
             <li><a href="doSearch.jsp">Search</a></li>
              <%
-                    if(usersessionid.equals(""))
+                    if(sSessonUserID.equals(""))
                     {
              %>
             <li><a href="register.jsp">Register</a></li>
@@ -33,7 +33,7 @@
              %>
              <li><a href="create-listing.jsp">List Your Property</a></li>
              <li><a href="create-posting.jsp">Post Your Requirement</a></li>
-             <li><a href="<%=fileCall%>"><span><%=usersessionid%> <%=status%></span></a></li>
+             <li><a href="<%=fileCall%>"><span><%=sSessonUserID%> <%=status%></span></a></li>
         </ul>
     </div>
 </div>

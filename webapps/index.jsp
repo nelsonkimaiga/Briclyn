@@ -1,23 +1,19 @@
 <%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*,java.text.*" errorPage="" %>
 <jsp:useBean id="dbConn" scope="request" class="com.villa.db.DBProperties"/>
 <%
-Connection conn=null;
-conn=dbConn.getConnection();
-Statement st=null;
-ResultSet rsOptions=null;
-
-st = conn.createStatement();
-PreparedStatement psOptions=null;
-
-PreparedStatement psCity=null;
-ResultSet rsCity=null;
-
-PreparedStatement psLocation=null;
-ResultSet rsLocation=null;
-
-PreparedStatement psProperty=null;
-ResultSet rsProperty=null;
-try{
+    Connection conn=null;
+    conn=dbConn.getConnection();
+    Statement st=null;
+    ResultSet rsOptions=null;
+    st = conn.createStatement();
+    PreparedStatement psOptions=null;
+    PreparedStatement psCity=null;
+    ResultSet rsCity=null;
+    PreparedStatement psLocation=null;
+    ResultSet rsLocation=null;
+    PreparedStatement psProperty=null;
+    ResultSet rsProperty=null;
+    try{
 			
             String sqlOption="SELECT * FROM budgetmaster u ";
       	    psOptions=conn.prepareStatement(sqlOption);
@@ -34,11 +30,11 @@ try{
 			String sqlProperty="SELECT * FROM propertymaster c ";
       	    psProperty=conn.prepareStatement(sqlProperty);
 			rsProperty=psProperty.executeQuery();
-}
-catch(Exception e)
-{}
-
- %>
+    }
+    catch(Exception e)
+    {
+    }
+%>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
