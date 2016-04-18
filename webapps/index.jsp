@@ -64,7 +64,7 @@
         </script>
     </head>
     <body>
-        <img src="images/logo.jpg" />
+        <!--dynamic navbar-->
         <%@include file="/comman/menu.jsp"%>
         <div class="large-6 large-centered columns">
             <form name="fSearch" method="post" action="searchRes.jsp">

@@ -145,14 +145,6 @@ a:hover {
 	text-decoration: underline; 
 	}*/
 /* Form Styles */
-
-.button {
-	font-size: 11px;
-	color: #666666;
-	font-weight: bold;
-	background-image: url(../images/pictures/btn_bg.gif);
-	}
-
 .buttonOn {
 	border: 1px solid #444444;
 	background-color: #ffffff;
