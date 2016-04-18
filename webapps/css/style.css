@@ -15,6 +15,12 @@ h6{
     font-family: 'Raleway', serif;
 }
 
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
 
 div#rnds{background: #E7F4FF}
 
@@ -1037,4 +1043,23 @@ a.lnk:hover {
 .bgRw
 {
   background-color:#dedede;
-}	
+}
+
+/*--footer--*/
+.copy {
+    background-color:rgba(0,0,0,0.8);;
+    padding: 2em 0;
+    text-align: center;
+    color: #fff
+}
+.copy p {
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+.copy p a {
+    color: #fff;
+}
+.copy p a:hover {
+    color: #999;
+}

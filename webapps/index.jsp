@@ -147,6 +147,19 @@
                                 <button type="submit" class="button secondary" name="Submit" value="Search">Search</button>
             </form>
         </div>
+        <!--footer-->
+        <div class="footer">
+            <div class="copy">
+                <div class="container">
+                    <p>All Rights Reserved |<a href="">Briclyn Kenya</a></p>
+                </div>
+                <!-- curent date and year to appear on footer-->
+                &copy; Briclyn Kenya.
+                <script type="text/javascript">
+                    document.write(new Date().getFullYear());
+                </script>
+            </div>
+        </div>                        
                                 <script type="text/javascript">
                                     callETabID('0')
                                                                     </script>
