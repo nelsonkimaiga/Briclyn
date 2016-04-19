@@ -136,7 +136,7 @@ function isNumberKey(evt)
 </script>
     </head>
     <body>
-        
+        <%@include file="/comman/menu.jsp"%>
         <div class="container">
             <div class="large-4 large-centered columns">
                     <h3 class="menu-headings">List Your Property</h3>
