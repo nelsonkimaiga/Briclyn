@@ -46,13 +46,20 @@
 		  e.printStackTrace();
 		}
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link type="text/css" rel="StyleSheet" href="css/style.css" />
-<link type="text/css" rel="StyleSheet" href="css/menu.css" />
-<title>Create Listing</title>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Create Listing</title>
+        <!--foundation zurb-->
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link type="text/css" rel="StyleSheet" href="css/style.css"/>
+        <!--fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
+        <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
 <script>
 function trim(s) 
 {
@@ -127,215 +134,122 @@ function isNumberKey(evt)
  return true;
 }
 </script>
-</head>
-
-<body>
-<form name="frm" action="doListing.jsp" method="post" onsubmit="return validate()">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="5%">&nbsp;</td>
-    <td width="90%"><div class="header"><%@ include file="comman/header.jsp"%></div></td>
-    <td width="5%">&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@ include file="comman/logo.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@include file="/comman/menu.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="20%" valign="top"><div id="leftbar"><%@include file="menu.jsp" %></div></td>
-        <td width="5%" valign="top">&nbsp;</td>
-        <td width="75%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td valign="top">&nbsp;</td>
-    <td valign="top"><%=nullconv((String)request.getAttribute("error"))%></td>
-  </tr>
-  <tr>
-    <td colspan="2" valign="top"><h5>List Your Property</h5></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Transaction Type: </td>
-    <td><select name="tranType">
-        <option value="1">Sell</option>
-        <option value="2">Rent / Lease</option>
-      </select></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Property Type: </td>
-    <td><select name="propertyType">
-         <%
-		 while (rsProperty.next())
-		 {
-		 %>
-        <option value="<%=rsProperty.getInt("iPropertyID") %>"><%=rsProperty.getString("sPropertyName")%></option>
-          <%
-		  }
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="large-4 large-centered columns">
+                    <h3 class="menu-headings">List Your Property</h3>
+                    <form name="frm" action="doListing.jsp" method="post" onsubmit="return validate()">
+                        <fieldset>
+                            <label class="labels">Title</label>
+                            <input type="text" name="title" placeholder="Property Title">
+                        </fieldset>
+                        <fieldset>
+                            <label class="menu-headings">Transaction type (E.g Sale or rent?</label>
+                            <select name="tranType">
+                                <option value="default" selected disabled>Select a transaction type</option>
+                                <option value="1">Sell</option>
+                                <option value="2">Rent / Lease</option>
+                            </select>
+                        </fieldset>
+                        <fieldset>
+                            <label class="labels">Property Type</label>
+                            <select name="propertyType">
+                                <option value="default" selected disabled>Select a property type</option>
+                                <%
+                                    while (rsProperty.next())
+                                    {
+                                %>
+                                <option value="<%=rsProperty.getInt("iPropertyID") %>"><%=rsProperty.getString("sPropertyName")%></option>
+                                <%}
 		  %>
-      </select>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Property Address: </td>
-    <td><input type="text" name="sPropertyAddress"/></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>City:</td>
-    <td><select name="iCityID" class="smalltextbox">
-        <option value="" >-- Select City --</option>
-        <%
-        while (rsCity.next())
-        {
-        %>
-        <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
-        <%
-         }
-        %>
-      </select></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Locality:</td>
-    <td><select name="iLocation" class="smalltextbox" id="iLocation" style="width:150px;">
-        <option value="" >-- Select Location --</option>
-        <%
-       while (rsLocation.next())
-       {
-       %>
-        <option value="<%=rsLocation.getInt("iLocationID") %>"><%=rsLocation.getString("iLocationName")%></option>
-       <%
-        }
-       %>
-      </select></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Area:</td>
-    <td><input type="text" name="iArea" onKeyPress="return isNumberKey(event)"/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sq.Ft</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Total Price: </td>
-    <td><input type="text" name="iTotalPrice" onKeyPress="return isNumberKey(event)"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in <%=sCurrency%>
-    </td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Is the price negotiable? </td>
-    <td><input name="cPriceNegotiable" type="radio" value="Y" />Yes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input name="cPriceNegotiable" type="radio" value="N"  checked="checked"/>No </td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Bedroom:</td>
-    <td><select name='bedroom'>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-        <option value="11">11+</option>
-      </select></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Floor Number: </td>
-    <td><select name='floornumber'>
-        <option value="1">Basement</option>
-        <option value="2">Ground Floor</option>
-        <option value="3">1</option>
-        <option value="4">2</option>
-        <option value="5">3</option>
-        <option value="6">4</option>
-        <option value="7">5</option>
-        <option value="8">6</option>
-        <option value="9">7</option>
-        <option value="10">8</option>
-        <option value="11">9</option>
-        <option value="12">10</option>
-        <option value="13">10+</option>
-      </select></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><input type="submit" name="Submit" value="Save" /></td>
-  </tr>
-</table></td>
-      </tr>
-    </table></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><div class="footer"><%@ include file="comman/footer.jsp"%></div></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-</form>
-</body>
+                            </select>
+                        </fieldset>
+                        <hr>
+                        <p class="menu-headings">Pick Location</p>
+                        <hr>
+                        <fieldset>
+                            <label class="labels">Property Address</label>
+                            <input type="text" name="sPropertyAddress"/>
+                        </fieldset>
+                        <fieldset>
+                            <label class="labels">City</label>
+                            <select name="iCityID">
+                                <option value="default" selected disabled>Select City</option>
+                                <%
+                                    while (rsCity.next())
+                                    {
+                                %>
+                                <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
+                                <%}
+                                %>
+                            </select>
+                        </fieldset>
+                        <fieldset>
+                            <label class="labels">Location</label>
+                            <select name="iLocation" class="smalltextbox" id="iLocation" style="width:150px;">
+                                <option value="" >-- Select Location --</option>
+                                <%
+                                    while (rsLocation.next())
+                                    {
+                                %>
+                                <option value="<%=rsLocation.getInt("iLocationID") %>"><%=rsLocation.getString("iLocationName")%></option>
+                                <%}
+                                %>
+                            </select>
+                        </fieldset>
+                        <fieldset>
+                            <label class="labels">Area</label>
+                            <input type="text" name="iArea" placeholder="Area" onKeyPress="return isNumberKey(event)"/>
+                        </fieldset>
+                        <fieldset>
+                            <label class="labels">Price</label>
+                            <input name="cPriceNegotiable" placeholder="Price" type="radio" value="Y" />
+                        </fieldset>
+                            <fieldset>
+                                <label>Price Negotiable?</label>
+                                <input name="cPriceNegotiable" type="radio" value="Y" /><label>Yes</label><input name="cPriceNegotiable" type="radio" value="N"  checked="checked"/><label>No</label>
+                            </fieldset>
+                            <fieldset>
+                                <label>Bedroom</label>
+                                <select name='bedroom'>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11+</option>
+                                </select>
+                            </fieldset>
+                            <fieldset>
+                                <label>Floor Number</label>
+                                <select name='floornumber'>
+                                    <option value="1">Basement</option>
+                                    <option value="2">Ground Floor</option>
+                                    <option value="3">1</option>
+                                    <option value="4">2</option>
+                                    <option value="5">3</option>
+                                    <option value="6">4</option>
+                                    <option value="7">5</option>
+                                    <option value="8">6</option>
+                                    <option value="9">7</option>
+                                    <option value="10">8</option>
+                                    <option value="11">9</option>
+                                    <option value="12">10</option>
+                                    <option value="13">10+</option>
+                                </select>
+                            </fieldset>
+                        <button type="submit" name="Submit" value="Save" class="button success">Create Listing</button>
+                    </form>
+                </div>
+        </div>
+    </body>
 </html>
 <%
 	try{

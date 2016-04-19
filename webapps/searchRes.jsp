@@ -274,41 +274,15 @@ if(nextRow==false)
                     </table>
                 </div>
             </div>
-                </td>
-  </tr>
-</table></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>
-	<%if(iTotalRows>0){%>
-	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-   <tr>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-   </tr>
-   <tr>
-     <td>&nbsp;</td>
-     <td colspan="2"><%if(sPendingID==true){ %><input type="submit" name="DeleteAll" styleClass="bD" value="Delete" /><%}%></td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-   </tr>
-   <tr>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-     <td>&nbsp;</td>
-   </tr>
-   <script>
-   document.getElementById("tot").innerHTML="<b>Rows <%=iStartResultNo%> - <%=iEndResultNo%> &nbsp;&nbsp;Total Result  <%=iTotalRows%> </b>";
-   </script>
-   <tr>
-     <td colspan="4"><div>
+            <%if(iTotalRows>0){%>
+            <%if(sPendingID==true){ %>
+         <button type="submit" name="DeleteAll" styleClass="bD" value="Delete" class="button alert">Delete</button>
+         <%}
+         %>
+         <script>
+             document.getElementById("tot").innerHTML="<b>Rows <%=iStartResultNo%> - <%=iEndResultNo%> &nbsp;&nbsp;Total Result  <%=iTotalRows%> </b>";
+                  </script>
+                  <div>
 	 <%
 	    int i=0;
 	    
@@ -343,28 +317,11 @@ if(nextRow==false)
 		 <%
 		}
 	  %>
- </div></td>
-     <td>Total Pages  <b><%=iTotalPages%></b></td>
-   </tr>
-   <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-<%}%>
-</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><div class="footer"><%@ include file="comman/footer.jsp"%></div></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-</form>
+ </div>
+          Total Pages  <b><%=iTotalPages%></b>
+          <%}
+          %>
+        </form>
 </body>
 </html>
 <%
