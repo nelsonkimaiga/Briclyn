@@ -138,25 +138,29 @@ function isNumberKey(evt)
     <body>
         <%@include file="/comman/menu.jsp"%>
         <div class="container">
-            <div class="large-4 large-centered columns">
-                    <h3 class="menu-headings">List Your Property</h3>
-                    <form name="frm" action="doListing.jsp" method="post" onsubmit="return validate()">
-                        <fieldset>
-                            <label class="labels">Title</label>
-                            <input type="text" name="title" placeholder="Property Title">
-                        </fieldset>
-                        <fieldset>
-                            <label class="menu-headings">Transaction type (E.g Sale or rent?</label>
-                            <select name="tranType">
-                                <option value="default" selected disabled>Select a transaction type</option>
-                                <option value="1">Sell</option>
-                                <option value="2">Rent / Lease</option>
-                            </select>
-                        </fieldset>
-                        <fieldset>
-                            <label class="labels">Property Type</label>
-                            <select name="propertyType">
-                                <option value="default" selected disabled>Select a property type</option>
+            <div class="row">
+                <div class="large-4 columns medium-4 columns" id="sidemenu">
+                    <%@include file="menu.jsp" %>
+                </div>
+                <div class="large-6 columns">
+                        <h3 class="menu-headings">List Your Property</h3>
+                        <form name="frm" action="doListing.jsp" method="post" onsubmit="return validate()">
+                            <fieldset>
+                                <label class="labels">Title</label>
+                                <input type="text" name="title" placeholder="Property Title">
+                            </fieldset>
+                            <fieldset>
+                                <label class="menu-headings">Transaction type (E.g Sale or rent?</label>
+                                <select name="tranType">
+                                    <option value="default" selected disabled>Select a transaction type</option>
+                                    <option value="1">Sell</option>
+                                    <option value="2">Rent / Lease</option>
+                                </select>
+                            </fieldset>
+                            <fieldset>
+                                <label class="labels">Property Type</label>
+                                <select name="propertyType">
+                                    <option value="default" selected disabled>Select a property type</option>
                                 <%
                                     while (rsProperty.next())
                                     {
@@ -164,93 +168,95 @@ function isNumberKey(evt)
                                 <option value="<%=rsProperty.getInt("iPropertyID") %>"><%=rsProperty.getString("sPropertyName")%></option>
                                 <%}
 		  %>
-                            </select>
-                        </fieldset>
-                        <hr>
-                        <p class="menu-headings">Pick Location</p>
-                        <hr>
-                        <fieldset>
-                            <label class="labels">Property Address</label>
-                            <input type="text" name="sPropertyAddress"/>
-                        </fieldset>
-                        <fieldset>
-                            <label class="labels">City</label>
-                            <select name="iCityID">
-                                <option value="default" selected disabled>Select City</option>
+                                </select>
+                            </fieldset>
+                            <hr>
+                            <p class="menu-headings">Pick Location</p>
+                            <hr>
+                            <fieldset>
+                                <label class="labels">Property Address</label>
+                                <input type="text" name="sPropertyAddress"/>
+                            </fieldset>
+                            <fieldset>
+                                <label class="labels">City</label>
+                                <select name="iCityID">
+                                    <option value="default" selected disabled>Select City</option>
                                 <%
                                     while (rsCity.next())
                                     {
                                 %>
-                                <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
+                                    <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
                                 <%}
                                 %>
-                            </select>
-                        </fieldset>
-                        <fieldset>
-                            <label class="labels">Location</label>
-                            <select name="iLocation" class="smalltextbox" id="iLocation" style="width:150px;">
-                                <option value="" >-- Select Location --</option>
+                                </select>
+                            </fieldset>
+                                <fieldset>
+                                    <label class="labels">Location</label>
+                                    <select name="iLocation" class="smalltextbox" id="iLocation">
+                                        <option value="" >-- Select Location --</option>
                                 <%
                                     while (rsLocation.next())
                                     {
                                 %>
-                                <option value="<%=rsLocation.getInt("iLocationID") %>"><%=rsLocation.getString("iLocationName")%></option>
+                                        <option value="<%=rsLocation.getInt("iLocationID") %>"><%=rsLocation.getString("iLocationName")%></option>
                                 <%}
                                 %>
-                            </select>
-                        </fieldset>
-                        <fieldset>
-                            <label class="labels">Area</label>
-                            <input type="text" name="iArea" placeholder="Area" onKeyPress="return isNumberKey(event)"/>
-                        </fieldset>
-                        <fieldset>
-                            <label class="labels">Price</label>
-                            <input name="cPriceNegotiable" placeholder="Price" type="radio" value="Y" />
-                        </fieldset>
-                            <fieldset>
-                                <label>Price Negotiable?</label>
-                                <input name="cPriceNegotiable" type="radio" value="Y" /><label>Yes</label><input name="cPriceNegotiable" type="radio" value="N"  checked="checked"/><label>No</label>
-                            </fieldset>
-                            <fieldset>
-                                <label>Bedroom</label>
-                                <select name='bedroom'>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11+</option>
-                                </select>
-                            </fieldset>
-                            <fieldset>
-                                <label>Floor Number</label>
-                                <select name='floornumber'>
-                                    <option value="1">Basement</option>
-                                    <option value="2">Ground Floor</option>
-                                    <option value="3">1</option>
-                                    <option value="4">2</option>
-                                    <option value="5">3</option>
-                                    <option value="6">4</option>
-                                    <option value="7">5</option>
-                                    <option value="8">6</option>
-                                    <option value="9">7</option>
-                                    <option value="10">8</option>
-                                    <option value="11">9</option>
-                                    <option value="12">10</option>
-                                    <option value="13">10+</option>
-                                </select>
-                            </fieldset>
-                        <button type="submit" name="Submit" value="Save" class="button success">Create Listing</button>
-                    </form>
+                                    </select>
+                                </fieldset>
+                                    <fieldset>
+                                        <label class="labels">Area</label>
+                                        <input type="text" name="iArea" placeholder="Area" onKeyPress="return isNumberKey(event)"/>
+                                    </fieldset>
+                                    <fieldset>
+                                        <label class="labels">Price</label>
+                                        <input type="text" name="iTotalPrice" onKeyPress="return isNumberKey(event)"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in <%=sCurrency%>
+                                    </fieldset>
+                                    <fieldset>
+                                        <label>Price Negotiable?</label>
+                                        <input name="cPriceNegotiable" type="radio" value="Y" /><label>Yes</label>
+                                        <input name="cPriceNegotiable" type="radio" value="N"  checked="checked"/><label>No</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <label>Bedroom</label>
+                                        <select name='bedroom'>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11">11+</option>
+                                        </select>
+                                    </fieldset>
+                                    <fieldset>
+                                        <label>Floor Number</label>
+                                        <select name='floornumber'>
+                                            <option value="1">Basement</option>
+                                            <option value="2">Ground Floor</option>
+                                            <option value="3">1</option>
+                                            <option value="4">2</option>
+                                            <option value="5">3</option>
+                                            <option value="6">4</option>
+                                            <option value="7">5</option>
+                                            <option value="8">6</option>
+                                            <option value="9">7</option>
+                                            <option value="10">8</option>
+                                            <option value="11">9</option>
+                                            <option value="12">10</option>
+                                            <option value="13">10+</option>
+                                        </select>
+                                    </fieldset>
+                                    <button type="submit" name="Submit" value="Save" class="button success">Create Listing</button>
+                        </form>
                 </div>
-        </div>
-    </body>
-</html>
+            </div>
+            </div>
+        </body>
+        </html>
 <%
 	try{
 		 if(psCity!=null){

@@ -6,8 +6,8 @@ if(!(sUserType).equals(""))
   if(sUserType.equalsIgnoreCase("1"))
   {
    %>
-   <div class="headers">My Estate</div>
-<ul class="categorylinks">
+   <div class="headers">My Menu</div>
+   <ul class="categorylinks" id="sidemenu">
 		<li><a href="myProfile.jsp">My Profile</a></li>
 		<li><a href="myList.jsp">My Listing </a></li>
 		<li><a href="myResponse.jsp">Response I Got</a></li>
