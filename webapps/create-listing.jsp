@@ -142,7 +142,7 @@ function isNumberKey(evt)
                 <div class="large-4 columns medium-4 columns" id="sidemenu">
                     <%@include file="menu.jsp" %>
                 </div>
-                <div class="large-6 columns">
+                <div class="large-8 columns">
                         <h3 class="menu-headings">List Your Property</h3>
                         <form name="frm" action="doListing.jsp" method="post" onsubmit="return validate()">
                             <fieldset>

@@ -66,18 +66,25 @@
 		e.printStackTrace();
 	}
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link type="text/css" rel="StyleSheet" href="css/style.css" />
-<link type="text/css" rel="StyleSheet" href="css/menu.css" />
-<title>My List</title>
-<script src="js/checkbox.js" type="text/javascript"></script>
-<script>
-	function validate()
-	{
-		var chge="Are you sure to Delete List!";
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My List</title>
+        <!--foundation zurb-->
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link type="text/css" rel="StyleSheet" href="css/style.css"/>
+        <!--fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
+        <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+        <script src="js/checkbox.js" type="text/javascript"></script>
+        <script>
+            function validate()
+            {
+                var chge="Are you sure to Delete List!";
 		if(confirm(chge)==false)
 		{  
 		   return false;
@@ -115,7 +122,7 @@
 	{
 		window.open("display.jsp?iListID="+iListID,'my','status=no,menubar=no,scrollbars=yes,toolbar=no,resize=yes');
 	}
-</script> 
+            </script> 
 </head>
 
 <body>

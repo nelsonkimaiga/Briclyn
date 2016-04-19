@@ -6,15 +6,16 @@ if(!(sUserType).equals(""))
   if(sUserType.equalsIgnoreCase("1"))
   {
    %>
+
    <div class="headers">My Menu</div>
-   <ul class="categorylinks" id="sidemenu">
-		<li><a href="myProfile.jsp">My Profile</a></li>
-		<li><a href="myList.jsp">My Listing </a></li>
-		<li><a href="myResponse.jsp">Response I Got</a></li>
-		<li><a href="myPost.jsp">My Posting</a></li>
-		<li><a href="sendResponse.jsp">Response I Sent</a></li>
-		<li><a href="chgPwd.jsp">Change Password</a></li>
-</ul>
+   <ul class="menu vertical">
+       <li class="active"><a href="myProfile.jsp">My Profile</a></li>
+       <li><a href="myList.jsp">My Listing </a></li>
+       <li><a href="myResponse.jsp">Response I Got</a></li>
+       <li><a href="myPost.jsp">My Posting</a></li>
+       <li><a href="sendResponse.jsp">Response I Sent</a></li>
+       <li><a href="chgPwd.jsp">Change Password</a></li>
+   </ul>
 
 <div class="headers">Administrator</div>
 <ul class="categorylinks">
