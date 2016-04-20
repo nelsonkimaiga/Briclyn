@@ -129,27 +129,28 @@
         <script>
             fieldSName("iListID","frm");
                 </script>
-                <form name="frm" action="dList.jsp" onSubmit="return goSubmitForm()">
-                    <input type="hidden" name="iPageID" value="My">
-<%=nullconv((String)request.getAttribute("error"))%>
-<div class="container">
-    <div class="row">
-        <div class="medium-4 large-4 columns" id="sidemenu">
-            <%@include file="menu.jsp" %>
-        </div>
-        <div class="medium-8 large-8 columns">
-            <h3>My List of Property </h3>
-            <div class="large-12 large-centered columns">
-                <table width="100%" border="0" cellspacing="=0" cellpadding="0">
-                    <thead>
-                        <tr>
-                            <th class="hspry brt brl"><input type="checkbox" name="allCheck" onClick="selectallMe()" styleClass="ch" /></th>
-                            <th class="hspry brt brl">Location</th>
-                            <th class="hspry brt brl">Specification</th>
-                            <th class="hspry brt brl">Price</th>
-                            <th class="hspry brt brl brr">Contact</th>
-                        </tr>
-                    </thead>    
+                <div class="container">
+                    <form name="frm" action="dList.jsp" onSubmit="return goSubmitForm()">
+                        <input type="hidden" name="iPageID" value="My">
+                    <%=nullconv((String)request.getAttribute("error"))%>
+                    <div class="container">
+                        <div class="row">
+                            <div class="medium-4 large-4 columns" id="sidemenu">
+                                <%@include file="menu.jsp" %>
+                            </div>
+                            <div class="medium-8 large-8 columns">
+                                <h3>My List of Property </h3>
+                                <div class="large-12 large-centered columns">
+                                    <table width="100%" border="0" cellspacing="=0" cellpadding="0">
+                                        <thead>
+                                            <tr>
+                                                <th class="hspry brt brl"><input type="checkbox" name="allCheck" onClick="selectallMe()" styleClass="ch" /></th>
+                                                <th class="hspry brt brl">Location</th>
+                                                <th class="hspry brt brl">Specification</th>
+                                                <th class="hspry brt brl">Price</th>
+                                                <th class="hspry brt brl brr">Contact</th>
+                                            </tr>
+                                        </thead>    
                           <%
   boolean nextRow=false;
    
@@ -182,16 +183,16 @@
    
    
   %>
-                    <tbody>
-                        <tr>
-                            <td class="pd brt brb brl"><input type="checkbox" name="iListID" onClick="selectall()" styleClass="ch" value="<%=iListID%>"/>  <img src="proImage/<%=iListID%>.jpg" id="im<%=iListID%>" onError="onErrorLoad('<%=iListID%>')" onClick="openWindow('<%=iListID%>')" width="90" height="100">&nbsp;</td>
-                            <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')"><%=rsMyList.getString("sPropertyName")%> <%=trans%><br> <%=rsMyList.getString("sPropertyAddress")%> <br><%=rsMyList.getString("iCityName")%> <br><%=rsMyList.getString("iLocationName")%></td>
-                            <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')">Area <%=rsMyList.getString("iArea")%> sq. ft <br><%=rsMyList.getString("iBedRoom")%> Bedrooms</td>
-                            <td class="pd brt brb brl" onclick="goRecord('<%=iListID%>')"><%=sCurrency%> <%=rsMyList.getString("iTotalPrice")%> <br><%=neo%></td>
-                            <td class="pd brt brb brl brr" onClick="goRecord('<%=iListID%>')">Posted Date: <%=getDateFormat(rsMyList.getTimestamp("dCreatedDate"),"dd.MMM.yyyy hh:mm a")%> <br><br><span style="text-transform:capitalize"><%=rsMyList.getString("sFirstName")%> <%=rsMyList.getString("sLastName")%></span><br> Contact: <%=rsMyList.getString("iUserContact")%><br> Email: <%=rsMyList.getString("sRegEmail")%><br>&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td id="nCl">
+                                           <tbody>
+                                               <tr>
+                                                   <td class="pd brt brb brl"><input type="checkbox" name="iListID" onClick="selectall()" styleClass="ch" value="<%=iListID%>"/>  <img src="proImage/<%=iListID%>.jpg" id="im<%=iListID%>" onError="onErrorLoad('<%=iListID%>')" onClick="openWindow('<%=iListID%>')" width="90" height="100">&nbsp;</td>
+                                                   <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')"><%=rsMyList.getString("sPropertyName")%> <%=trans%><br> <%=rsMyList.getString("sPropertyAddress")%> <br><%=rsMyList.getString("iCityName")%> <br><%=rsMyList.getString("iLocationName")%></td>
+                                                   <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')">Area <%=rsMyList.getString("iArea")%> sq. ft <br><%=rsMyList.getString("iBedRoom")%> Bedrooms</td>
+                                                   <td class="pd brt brb brl" onclick="goRecord('<%=iListID%>')"><%=sCurrency%> <%=rsMyList.getString("iTotalPrice")%> <br><%=neo%></td>
+                                                   <td class="pd brt brb brl brr" onClick="goRecord('<%=iListID%>')">Posted Date: <%=getDateFormat(rsMyList.getTimestamp("dCreatedDate"),"dd.MMM.yyyy hh:mm a")%> <br><br><span style="text-transform:capitalize"><%=rsMyList.getString("sFirstName")%> <%=rsMyList.getString("sLastName")%></span><br> Contact: <%=rsMyList.getString("iUserContact")%><br> Email: <%=rsMyList.getString("sRegEmail")%><br>&nbsp;</td>
+                                               </tr>
+                                               <tr>
+                                                   <td id="nCl">
                                 <%
 	//////  This is for approval image option
         if(sApprovalOptionListImage.equalsIgnoreCase("Y"))
@@ -215,43 +216,44 @@
    } 
    /////  End of approval image option list
    %>
-                            </td>
-                            <td id="nCl">&nbsp;</td>
-                            <td id="nCl">&nbsp;</td>
-                            <td id="nCl">&nbsp;</td>
-                            <td height="25" class="brb brl brr" align="center" id="nCl" >
-                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                                    <tr>
-                                        <td align="right"><img src="images/photo.jpg" /></td>
-                                        <td align="left" style="padding-left:5px"><a href="<%=sURLUploadImage%>?iListID=<%=iListID%>">Upload Photo</a></td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td id="nCl">&nbsp;</td>
-                            <td id="nCl">&nbsp;</td>
-                            <td id="nCl">&nbsp;</td>
-                            <td id="nCl">&nbsp;</td>
-                            <td id="nCl">&nbsp;</td>
-                        </tr>
+                                                   </td>
+                                                   <td id="nCl">&nbsp;</td>
+                                                   <td id="nCl">&nbsp;</td>
+                                                   <td id="nCl">&nbsp;</td>
+                                                   <td height="25" class="brb brl brr" align="center" id="nCl" >
+                                                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                           <tr>
+                                                               <td align="right"><img src="images/photo.jpg" /></td>
+                                                               <td align="left" style="padding-left:5px"><a href="<%=sURLUploadImage%>?iListID=<%=iListID%>">Upload Photo</a></td>
+                                                           </tr>
+                                                       </table>
+                                                   </td>
+                                               </tr>
+                                               <tr>
+                                                    <td id="nCl">&nbsp;</td>
+                                                    <td id="nCl">&nbsp;</td>
+                                                    <td id="nCl">&nbsp;</td>
+                                                    <td id="nCl">&nbsp;</td>
+                                                    <td id="nCl">&nbsp;</td>
+                                               </tr>
                         <%}
 if(nextRow==false)
 {
                         %>
-                        <tr>
-                            <td colspan="5" align="center" height="50" class="pd brt  brb brl brr">No records is found</td>
-                        </tr>
+                                                  <tr>
+                                                      <td colspan="5" align="center" height="50" class="pd brt  brb brl brr">No records is found</td>
+                                                  </tr>
                         <%}
                         %>    
-                    </tbody>
-                </table>
-                    <button type="submit" class="button primary" name="DeleteAll" styleClass="bD" value="Delete">Delete</button>
-            </div>            
-        </div>
-    </div>
-</div>
-                </form>
+                                            </tbody>
+                                    </table>
+                                            <button type="submit" class="button primary" name="DeleteAll" styleClass="bD" value="Delete">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
     </body>
 </html>
 <%
