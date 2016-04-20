@@ -59,10 +59,10 @@
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <thead>
                             <tr>
-                                <th width="25%" class="hspry">List ID</th>
-                                <th width="25%" class="hspry">Subject</th>
-                                <th width="35%" class="hspry">Message</th>
-                                <th width="20%" class="hspry">Send By</th>
+                                <th class="hspry">List ID</th>
+                                <th class="hspry">Subject</th>
+                                <th class="hspry">Message</th>
+                                <th class="hspry">Send By</th>
                             </tr>                            
                         </thead>
                         <tbody>
@@ -75,9 +75,9 @@
                         </tbody>
                         <tr>
                             <td style="padding-left:5px; cursor:pointer">List ID: <a href="myMList.jsp?iListID=<%=rsResponse.getString("iListID")%>" class="lnk"><%=rsResponse.getString("iListID")%></a> <br>Posted: <%=getDateFormat(rsResponse.getTimestamp("sCreatedDate"),"dd.MMM.yyyy hh:mm a")%></td>
-                            <td onclick="goRecord('<%=rsResponse.getInt("iMessageID") %>')" style="padding-left:5px; cursor:pointer"><%=rsResponse.getString("sSubject")%></td>
-                            <td onclick="goRecord('<%=rsResponse.getInt("iMessageID") %>')" style="padding-left:5px; cursor:pointer"><%=nullconv(rsResponse.getString("tMessage"))%></td>
-                            <td onclick="goRecord('<%=rsResponse.getInt("iMessageID") %>')" style="padding-left:5px; cursor:pointer"><span style="text-transform:capitalize"><%=rsResponse.getString("sFirstName")%> <%=rsResponse.getString("sLastName")%></span><br> Contact: <%=rsResponse.getString("iUserContact")%><br> Email: <%=rsResponse.getString("sRegEmail")%></td>
+                            <td onclick="goRecord('<%=rsResponse.getInt("iMessageID") %>')"><%=rsResponse.getString("sSubject")%></td>
+                            <td onclick="goRecord('<%=rsResponse.getInt("iMessageID") %>')"><%=nullconv(rsResponse.getString("tMessage"))%></td>
+                            <td onclick="goRecord('<%=rsResponse.getInt("iMessageID") %>')"><span style="text-transform:capitalize"><%=rsResponse.getString("sFirstName")%> <%=rsResponse.getString("sLastName")%></span><br> Contact: <%=rsResponse.getString("iUserContact")%><br> Email: <%=rsResponse.getString("sRegEmail")%></td>
                         </tr>
                         <%}
 if(nextRow==false)
