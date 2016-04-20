@@ -122,66 +122,35 @@
 	{
 		window.open("display.jsp?iListID="+iListID,'my','status=no,menubar=no,scrollbars=yes,toolbar=no,resize=yes');
 	}
-            </script> 
-</head>
-
-<body>
-<script>
-	fieldSName("iListID","frm");
-</script>
-<form name="frm" action="dList.jsp" onSubmit="return goSubmitForm()">
-<input type="hidden" name="iPageID" value="My">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="5%">&nbsp;</td>
-    <td width="90%"><div class="header"><%@ include file="comman/header.jsp"%></div></td>
-    <td width="5%">&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@ include file="comman/logo.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@include file="/comman/menu.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="20%" valign="top"><div id="leftbar"><%@include file="menu.jsp" %></div></td>
-        <td width="5%" valign="top">&nbsp;</td>
-        <td width="75%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><%=nullconv((String)request.getAttribute("error"))%></td>
-  </tr>
-  <tr>
-    <td><h3>My List of Property </h3></td>
-  </tr>
-  <tr>
-    <td align="right"><div id="tot"></div></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <th class="hspry brt brl"><input type="checkbox" name="allCheck" onClick="selectallMe()" styleClass="ch" /></th>
-    <th class="hspry brt brl">Location</th>
-    <th class="hspry brt brl">Specification</th>
-    <th class="hspry brt brl">Price</th>
-    <th class="hspry brt brl brr">Contact</th>
-  </tr>
-  <%
+            </script>
+    </head>
+    <body>
+        <%@include file="/comman/menu.jsp"%>
+        <script>
+            fieldSName("iListID","frm");
+                </script>
+                <form name="frm" action="dList.jsp" onSubmit="return goSubmitForm()">
+                    <input type="hidden" name="iPageID" value="My">
+<%=nullconv((String)request.getAttribute("error"))%>
+<div class="container">
+    <div class="row">
+        <div class="medium-4 large-4 columns" id="sidemenu">
+            <%@include file="menu.jsp" %>
+        </div>
+        <div class="medium-8 large-8 columns">
+            <h3>My List of Property </h3>
+            <div class="large-12 large-centered columns">
+                <table width="100%" border="0" cellspacing="=0" cellpadding="0">
+                    <thead>
+                        <tr>
+                            <th class="hspry brt brl"><input type="checkbox" name="allCheck" onClick="selectallMe()" styleClass="ch" /></th>
+                            <th class="hspry brt brl">Location</th>
+                            <th class="hspry brt brl">Specification</th>
+                            <th class="hspry brt brl">Price</th>
+                            <th class="hspry brt brl brr">Contact</th>
+                        </tr>
+                    </thead>    
+                          <%
   boolean nextRow=false;
    
    String br="";
@@ -213,25 +182,26 @@
    
    
   %>
-  <tr>
-    <td class="pd brt brb brl"><input type="checkbox" name="iListID" onClick="selectall()" styleClass="ch" value="<%=iListID%>"/>  <img src="proImage/<%=iListID%>.jpg" id="im<%=iListID%>" onError="onErrorLoad('<%=iListID%>')" onClick="openWindow('<%=iListID%>')" width="90" height="100">&nbsp;</td>
-    <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')"><%=rsMyList.getString("sPropertyName")%> <%=trans%><br> <%=rsMyList.getString("sPropertyAddress")%> <br><%=rsMyList.getString("iCityName")%> <br><%=rsMyList.getString("iLocationName")%></td>
-    <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')">Area <%=rsMyList.getString("iArea")%> sq. ft <br><%=rsMyList.getString("iBedRoom")%> Bedrooms</td>
-    <td class="pd brt brb brl" onclick="goRecord('<%=iListID%>')"><%=sCurrency%> <%=rsMyList.getString("iTotalPrice")%> <br><%=neo%></td>
-    <td class="pd brt brb brl brr" onClick="goRecord('<%=iListID%>')">Posted Date: <%=getDateFormat(rsMyList.getTimestamp("dCreatedDate"),"dd.MMM.yyyy hh:mm a")%> <br><br><span style="text-transform:capitalize"><%=rsMyList.getString("sFirstName")%> <%=rsMyList.getString("sLastName")%></span><br> Contact: <%=rsMyList.getString("iUserContact")%><br> Email: <%=rsMyList.getString("sRegEmail")%><br>&nbsp;</td>
-  </tr>
-  <tr>
-    <td id="nCl">
-	<%
+                    <tbody>
+                        <tr>
+                            <td class="pd brt brb brl"><input type="checkbox" name="iListID" onClick="selectall()" styleClass="ch" value="<%=iListID%>"/>  <img src="proImage/<%=iListID%>.jpg" id="im<%=iListID%>" onError="onErrorLoad('<%=iListID%>')" onClick="openWindow('<%=iListID%>')" width="90" height="100">&nbsp;</td>
+                            <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')"><%=rsMyList.getString("sPropertyName")%> <%=trans%><br> <%=rsMyList.getString("sPropertyAddress")%> <br><%=rsMyList.getString("iCityName")%> <br><%=rsMyList.getString("iLocationName")%></td>
+                            <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')">Area <%=rsMyList.getString("iArea")%> sq. ft <br><%=rsMyList.getString("iBedRoom")%> Bedrooms</td>
+                            <td class="pd brt brb brl" onclick="goRecord('<%=iListID%>')"><%=sCurrency%> <%=rsMyList.getString("iTotalPrice")%> <br><%=neo%></td>
+                            <td class="pd brt brb brl brr" onClick="goRecord('<%=iListID%>')">Posted Date: <%=getDateFormat(rsMyList.getTimestamp("dCreatedDate"),"dd.MMM.yyyy hh:mm a")%> <br><br><span style="text-transform:capitalize"><%=rsMyList.getString("sFirstName")%> <%=rsMyList.getString("sLastName")%></span><br> Contact: <%=rsMyList.getString("iUserContact")%><br> Email: <%=rsMyList.getString("sRegEmail")%><br>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td id="nCl">
+                                <%
 	//////  This is for approval image option
-   if(sApprovalOptionListImage.equalsIgnoreCase("Y"))
-   {
-	  sURLUploadImage="uploadAppImage.jsp";
-	  psAppImageURL.setInt(1,iListID);
-	  rsAppImageURL=psAppImageURL.executeQuery();
-	  if(rsAppImageURL.next())
-	  {
-		img=rsAppImageURL.getString("bImage");
+        if(sApprovalOptionListImage.equalsIgnoreCase("Y"))
+        {
+            sURLUploadImage="uploadAppImage.jsp";
+            psAppImageURL.setInt(1,iListID);
+            rsAppImageURL=psAppImageURL.executeQuery();
+            if(rsAppImageURL.next())
+            {
+                img=rsAppImageURL.getString("bImage");
 		imglen=img.length();
 		img_arr = new byte[imglen];
 		InputStream rd_img=rsAppImageURL.getBinaryStream("bImage");
@@ -245,60 +215,44 @@
    } 
    /////  End of approval image option list
    %>
-   </td>
-    <td id="nCl">&nbsp;</td>
-    <td id="nCl">&nbsp;</td>
-    <td id="nCl">&nbsp;</td>
-    <td height="25" class="brb brl brr" align="center" id="nCl" ><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td align="right"><img src="images/photo.jpg" /></td>
-    <td align="left" style="padding-left:5px"><a href="<%=sURLUploadImage%>?iListID=<%=iListID%>">Upload Photo</a></td>
-  </tr>
-</table> </td>
-  </tr>
-  <tr>
-    <td id="nCl">&nbsp;</td>
-    <td id="nCl">&nbsp;</td>
-    <td id="nCl">&nbsp;</td>
-    <td id="nCl">&nbsp;</td>
-    <td id="nCl">&nbsp;</td>
-  </tr>
-  <%}
-  if(nextRow==false)
-  {
-  %>
-   <tr>
-    <td colspan="5" align="center" height="50" class="pd brt  brb brl brr">No records is found</td>
-  </tr>
-  <%
-  }
-  %>
-</table></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td><input type="submit" name="DeleteAll" styleClass="bD" value="Delete"/></td>
-  </tr>
-</table></td>
-      </tr>
-    </table></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><div class="footer"><%@ include file="comman/footer.jsp"%></div></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-</form>
-</body>
+                            </td>
+                            <td id="nCl">&nbsp;</td>
+                            <td id="nCl">&nbsp;</td>
+                            <td id="nCl">&nbsp;</td>
+                            <td height="25" class="brb brl brr" align="center" id="nCl" >
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="right"><img src="images/photo.jpg" /></td>
+                                        <td align="left" style="padding-left:5px"><a href="<%=sURLUploadImage%>?iListID=<%=iListID%>">Upload Photo</a></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="nCl">&nbsp;</td>
+                            <td id="nCl">&nbsp;</td>
+                            <td id="nCl">&nbsp;</td>
+                            <td id="nCl">&nbsp;</td>
+                            <td id="nCl">&nbsp;</td>
+                        </tr>
+                        <%}
+if(nextRow==false)
+{
+                        %>
+                        <tr>
+                            <td colspan="5" align="center" height="50" class="pd brt  brb brl brr">No records is found</td>
+                        </tr>
+                        <%}
+                        %>    
+                    </tbody>
+                </table>
+                    <button type="submit" class="button primary" name="DeleteAll" styleClass="bD" value="Delete">Delete</button>
+            </div>            
+        </div>
+    </div>
+</div>
+                </form>
+    </body>
 </html>
 <%
 	try{
