@@ -42,97 +42,77 @@
 		e.printStackTrace();
 	}
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link type="text/css" rel="StyleSheet" href="css/style.css" />
-<link type="text/css" rel="StyleSheet" href="css/menu.css" />
-<title>My Post</title>
-<script src="js/checkbox.js" type="text/javascript"></script>
-<script>
-	function validate()
-	{
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Post</title>
+        <!--foundation zurb-->
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link type="text/css" rel="StyleSheet" href="css/style.css"/>
+        <!--fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
+        <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+        <script src="js/checkbox.js" type="text/javascript"></script>
+        <script>
+            function validate()
+            {
 		var chge="Are you sure to Delete List!";
 		if(confirm(chge)==false)
 		{  
 		   return false;
 		}
-	} 
-	function cancalit()
-	{
+            } 
+            function cancalit()
+            {
 		history.back();
-	}
-	function goRecord(iPostID)
-	{
-	  var pathURL="deletePost.jsp";
-	  window.open(pathURL+"?iPostID="+iPostID,"_self");
-	}
-	function goSubmitForm()
-	{
-		var chge="Are you sure to Delete!";
-		if(confirm(chge)==false)
-		{  
+            }
+            function goRecord(iPostID)
+            {
+                var pathURL="deletePost.jsp";
+                window.open(pathURL+"?iPostID="+iPostID,"_self");
+            }
+            function goSubmitForm()
+            {
+                var chge="Are you sure to Delete!";
+                if(confirm(chge)==false)
+                {  
 		   return false;
 		}
 	}
-</script>
-</head>
-
-<body>
-<script>
-fieldSName("iPostID","frm");
-</script>
-<form name="frm" action="dPost.jsp" onSubmit="return goSubmitForm();">
-<input type="hidden" name="iPageID" value="My">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="5%">&nbsp;</td>
-    <td width="90%"><div class="header"><%@ include file="comman/header.jsp"%></div></td>
-    <td width="5%">&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@ include file="comman/logo.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@include file="/comman/menu.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="20%" valign="top"><div id="leftbar"><%@include file="menu.jsp" %></div></td>
-        <td width="5%" valign="top">&nbsp;</td>
-        <td width="75%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><%=nullconv((String)request.getAttribute("error"))%></td>
-  </tr>
-  <tr>
-    <td><h3>My Post Requirement</h3></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>
-<table width="100%" border="0" cellspacing="0" cellpadding="0" class="br">
-   <tr>
-    <th class="hspry"><input type="checkbox" name="allCheck" onClick="selectallMe()" styleclass="ch" /></th>
-    <th class="hspry">Location</th>
-    <th class="hspry">Specification</th>
-    <th class="hspry">Budget</th>
-    <th class="hspry">Contact</th>
-  </tr>
-  <%
+            </script>
+    </head>
+    <body>
+        <%@include file="/comman/menu.jsp"%>
+        <script>
+            fieldSName("iPostID","frm");
+                </script>
+                <div class="container">
+                    <form name="frm" action="dPost.jsp" onSubmit="return goSubmitForm();">
+                        <fieldset>
+                            <input type="hidden" name="iPageID" value="My">
+                        </fieldset>
+                        <div class="row">
+                            <div class="medium-4 large-4 columns" id="sidemenu">
+                                <%@include file="menu.jsp" %>
+                            </div>
+                            <div class="medium-8 large-8 columns">
+                                
+                                <h3>My Post Requirement</h3>
+                                <table width="100%" border="0" cellspacing="=0" cellpadding="0">
+                                    <thead>
+                                        <tr>
+                                            <th class="hspry"><input type="checkbox" name="allCheck" onClick="selectallMe()" styleclass="ch" /></th>
+                                            <th class="hspry">Location</th>
+                                            <th class="hspry">Specification</th>
+                                            <th class="hspry">Budget</th>
+                                            <th class="hspry">Contact</th>
+                                        </tr>
+                                    </thead>
+                                            <%
    boolean nextRow=false;
    while(rsMyPost.next())
    {
@@ -149,50 +129,31 @@ fieldSName("iPostID","frm");
    }
    int iListID=rsMyPost.getInt("iPostID");
   %>
-  <tr>
-    <td class="pd"><input type="checkbox" name="iPostID" onClick="selectall()" styleClass="ch" value="<%=iListID%>"/></td>
-    <td onClick="goRecord('<%=iListID%>')" class="pd"><%=rsMyPost.getString("sPropertyName")%> <%=trans%><br> <%=rsMyPost.getString("iCityName")%> <br><%=rsMyPost.getString("iLocationName")%></td>
-    <td onClick="goRecord('<%=iListID%>')" class="pd">Area <%=rsMyPost.getString("iArea")%> sq. ft <br><%=rsMyPost.getString("iBedRoom")%> Bedrooms</td>
-    <td onClick="goRecord('<%=iListID%>')" class="pd"><%=sCurrency%> <%=rsMyPost.getString("sBudgetName")%> <br></td>
-    <td onClick="goRecord('<%=iListID%>')" class="pd">Posted Date: <%=getDateFormat(rsMyPost.getTimestamp("dCreatedDate"),"dd.MMM.yyyy hh:mm a")%> <br><br><span style="text-transform:capitalize"><%=rsMyPost.getString("sFirstName")%> <%=rsMyPost.getString("sLastName")%></span><br> Contact: <%=rsMyPost.getString("iUserContact")%><br> Email: <%=rsMyPost.getString("sRegEmail")%><br>&nbsp;</td>
-  </tr>
- <%}
-  if(nextRow==false)
+                                    <tbody>
+                                        <tr>
+                                            <td class="pd"><input type="checkbox" name="iPostID" onClick="selectall()" styleClass="ch" value="<%=iListID%>"/></td>
+                                            <td onClick="goRecord('<%=iListID%>')" class="pd"><%=rsMyPost.getString("sPropertyName")%> <%=trans%><br> <%=rsMyPost.getString("iCityName")%> <br><%=rsMyPost.getString("iLocationName")%></td>
+                                            <td onClick="goRecord('<%=iListID%>')" class="pd">Area <%=rsMyPost.getString("iArea")%> sq. ft <br><%=rsMyPost.getString("iBedRoom")%> Bedrooms</td>
+                                            <td onClick="goRecord('<%=iListID%>')" class="pd"><%=sCurrency%> <%=rsMyPost.getString("sBudgetName")%> <br></td>
+                                            <td onClick="goRecord('<%=iListID%>')" class="pd">Posted Date: <%=getDateFormat(rsMyPost.getTimestamp("dCreatedDate"),"dd.MMM.yyyy hh:mm a")%> <br><br><span style="text-transform:capitalize"><%=rsMyPost.getString("sFirstName")%> <%=rsMyPost.getString("sLastName")%></span><br> Contact: <%=rsMyPost.getString("iUserContact")%><br> Email: <%=rsMyPost.getString("sRegEmail")%><br>&nbsp;</td>
+                                        </tr>
+                                         <%}
+if(nextRow==false)
   {
-  %>
-   <tr>
-    <td colspan="5" align="center" height="50" >No records is found</td>
-  </tr>
+
+%>
+                                    <h3 align="center">No record is found</h3>
   <%
   }
   %>
-</table>
-</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td><input type="submit" name="DeleteAll" styleClass="bD" value="Delete"/></td>
-  </tr>
-</table></td>
-      </tr>
-    </table></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><div class="footer"><%@ include file="comman/footer.jsp"%></div></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-</form>
-</body>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                                    <button type="submit" name="DeleteAll" class="button primary" styleClass="bD" value="Delete">Delete</button>
+                    </form>
+                </div>
+    </body>
 </html>
 <%
 	try{
