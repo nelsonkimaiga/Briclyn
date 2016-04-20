@@ -42,21 +42,22 @@
     </head>
     <body>
         <%@include file="/comman/menu.jsp"%>
+        <br>
         <div class="container">
             <div class="row">
-                <div class="medium-4 large-4 columns">
+                <div class="medium-4 large-4 columns" id="sidemenu">
                     <%@include file="menu.jsp" %>
                 </div>
                 <div class="medium-8 large-8 columns">
                     <h3>Response Details </h3>
-                    <form name="responsesForm" readonly>
+                    <form name="responsesForm">
                         <fieldset>
                             <label>Subject</label>
-                            <input type="text" value="<%=sTitle%>"/>
+                            <input type="text" value="<%=sTitle%>" readonly>
                         </fieldset>
                         <fieldset>
                             <label>Message</label>
-                            <input type="text" value="<%=sMessage%>">
+                            <input type="text" value="<%=sMessage%>" readonly>
                         </fieldset>
                         <a href="javascript:history.back()"> go to Previous  &lt;&lt;</a>
                     </form>
