@@ -62,13 +62,20 @@
 	  e.printStackTrace();
 	}
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link type="text/css" rel="StyleSheet" href="css/style.css" />
-<link type="text/css" rel="StyleSheet" href="css/menu.css" />
-<title>My Profile</title>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My Profile</title>
+        <!--foundation zurb-->
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link type="text/css" rel="StyleSheet" href="css/style.css"/>
+        <!--fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
+        <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
 <script>
 function validate()
 {
@@ -123,100 +130,55 @@ function validate()
 }
 
 </script>
-</head>
+    </head>
+    <body>
+        <%@include file="/comman/menu.jsp"%>
+        <div class="container">
+            <div class="row">
+                <div class="medium-4 large-4 columns" id="sidemenu">
+                    <%@include file="menu.jsp" %>
+                </div>
+                <%=nullconv((String)request.getAttribute("error"))%>
+                <div class="medium-8 large-8 columns">
+                    <h3>My Information</h3
+                    <form name="frm" action="editProfile.jsp" method="post" onsubmit="return validate()">
+                        <fieldset>
+                            <label>First Name</label>
+                            <input type="text" name="sFirstName" value="<%=sFirstName%>"/>
+                        </fieldset>
+                        <fieldset>
+                            <label>Last Name</label>
+                            <input type="text" name="sLastName" value="<%=sLastName%>"/>
+                        </fieldset>
+                        <fieldset>
+                            <label>City</label>
+                            <select name="iCityID">
+                                <option value="default" disabled>Select City</option>
+                                     <%
+                                         while (rsCity.next())
+                                         {
 
-<body>
-<form name="frm" action="editProfile.jsp" method="post" onsubmit="return validate()">
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="5%">&nbsp;</td>
-    <td width="90%"><div class="header"><%@ include file="comman/header.jsp"%></div></td>
-    <td width="5%">&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@ include file="comman/logo.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@include file="/comman/menu.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="20%" valign="top"><div id="leftbar"><%@include file="menu.jsp" %></div></td>
-        <td width="5%" valign="top">&nbsp;</td>
-        <td width="75%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-    <tr>
-      <td width="29%" valign="top">&nbsp;</td>
-      <td width="71%" valign="top"><%=nullconv((String)request.getAttribute("error"))%></td>
-    </tr>
-    <tr>
-      <td colspan="2"><h3>My Profile </h3></td>
-    </tr>
-    
-    <tr>
-      <td colspan="2"><h4>My Information</h4></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>First Name: </td>
-      <td><input type="text" name="sFirstName" value="<%=sFirstName%>"/></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Last Name: </td>
-      <td><input type="text" name="sLastName" value="<%=sLastName%>"/></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>City:</td>
-      <td><select name="iCityID" class="smalltextbox">
-          <option value="" >-- Select City --</option>
-     <%
-     while (rsCity.next())
-     {
-	 if(rsCity.getString("iCityID").equalsIgnoreCase(iCityID))
-	 {
-	 %>
+                                             if(rsCity.getString("iCityID").equalsIgnoreCase(iCityID))
+
+                                             {
+                                     %>
 	 <option value="<%=rsCity.getInt("iCityID") %>" selected="selected"><%=rsCity.getString("iCityName")%></option>
-	 <%
-	 }
-	 else
+         <%}
+
+else
 	 {
-	  %>
+         %>
 	  <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
 	 <%
 	 }
      }
       %>
-    </select> </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Location:</td>
-      <td><select name="iLocation" class="smalltextbox" id="iLocation" style="width:150px;">
-          <option value="" >-- Select Location --</option>
-      <%
+                            </select>
+                        </fieldset>
+                            <fieldset>
+                                <label>Location</label>
+                                <select>
+                                      <%
        while (rsLocation.next())
      {
 	 if(rsLocation.getString("iLocationID").equalsIgnoreCase(iLocation))
@@ -233,87 +195,55 @@ function validate()
 	 }
     }
     %>
-        </select> </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>E-mail:</td>
-      <td><input type="text" name="sRegEmail" value="<%=sRegEmail%>" size="50"/></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Date of Birth: (DD Month YYYY) </td>
-      <td><input  type="text"  name="dd" maxlength="2"   class="smallesttextbox"  value="<%=dd%>"  style='width:30px;' />
-        <select name="mm"  class="smalldropdown" >
-          <option value = '01' <%if(mm.equalsIgnoreCase("1")){out.println("selected='true'");}%>>Jan </option>
-          <option value = '02' <%if(mm.equalsIgnoreCase("2")){out.println("selected='true'");}%>>Feb </option>
-          <option value = '03' <%if(mm.equalsIgnoreCase("3")){out.println("selected='true'");}%>>Mar </option>
-          <option value = '04' <%if(mm.equalsIgnoreCase("4")){out.println("selected='true'");}%>>Apr </option>
-          <option value = '05' <%if(mm.equalsIgnoreCase("5")){out.println("selected='true'");}%>>May </option>
-          <option value = '06' <%if(mm.equalsIgnoreCase("6")){out.println("selected='true'");}%>>Jun </option>
-          <option value = '07' <%if(mm.equalsIgnoreCase("7")){out.println("selected='true'");}%>>Jul </option>
-          <option value = '08' <%if(mm.equalsIgnoreCase("8")){out.println("selected='true'");}%>>Aug </option>
-          <option value = '09' <%if(mm.equalsIgnoreCase("9")){out.println("selected='true'");}%>>Sep </option>
-          <option value = '10' <%if(mm.equalsIgnoreCase("10")){out.println("selected='true'");}%> >Oct </option>
-          <option value = '11' <%if(mm.equalsIgnoreCase("11")){out.println("selected='true'");}%> >Nov </option>
-          <option value = '12' <%if(mm.equalsIgnoreCase("12")){out.println("selected='true'");}%>>Dec </option>
-        </select>
-    <input type="text" name="yyyy" maxlength="4" class="smallesttextbox" value="<%=yyyy%>" style='width:45px;'  />    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Gender:</td>
-      <td><select name="sRegGender" class="smalldropdown" >
-          <option value="Male" <%if(sRegGender.equalsIgnoreCase("Male")){out.println("selected='true'");}%>>Male</option>
-          <option value="Female" <%if(sRegGender.equalsIgnoreCase("Female")){out.println("selected='true'");}%> >Female</option>
-        </select>      </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Contact No: </td>
-      <td><input type="text" name="iUserContact" value="<%=iUserContact%>"/></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td><input type="submit" name="Submit" value="Submit" /></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-  </table></td>
-      </tr>
-    </table></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><div class="footer"><%@ include file="comman/footer.jsp"%></div></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-</form>
-</body>
+                                </select>
+                            </fieldset>
+                            <fieldset>
+                                <label>Email</label>
+                                <input type="email" name="sRegEmail" value="<%=sRegEmail%>" size="50"/>
+                            </fieldset>
+                            <fieldset>
+                                <label>Date of Birth</label>
+                                <div class="row large-12 large-centered columns">
+                                    <div class="large-4 columns">
+                                        <input  type="text"  name="dd" maxlength="2"   class="smallesttextbox"  value="<%=dd%>"  style='width:250px;' />
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <select name="mm"  class="smalldropdown" >
+                                            <option value = '01' <%if(mm.equalsIgnoreCase("1")){out.println("selected='true'");}%>>Jan </option>
+                                            <option value = '02' <%if(mm.equalsIgnoreCase("2")){out.println("selected='true'");}%>>Feb </option>
+                                            <option value = '03' <%if(mm.equalsIgnoreCase("3")){out.println("selected='true'");}%>>Mar </option>
+                                            <option value = '04' <%if(mm.equalsIgnoreCase("4")){out.println("selected='true'");}%>>Apr </option>
+                                            <option value = '05' <%if(mm.equalsIgnoreCase("5")){out.println("selected='true'");}%>>May </option>
+                                            <option value = '06' <%if(mm.equalsIgnoreCase("6")){out.println("selected='true'");}%>>Jun </option>
+                                            <option value = '07' <%if(mm.equalsIgnoreCase("7")){out.println("selected='true'");}%>>Jul </option>
+                                            <option value = '08' <%if(mm.equalsIgnoreCase("8")){out.println("selected='true'");}%>>Aug </option>
+                                            <option value = '09' <%if(mm.equalsIgnoreCase("9")){out.println("selected='true'");}%>>Sep </option>
+                                            <option value = '10' <%if(mm.equalsIgnoreCase("10")){out.println("selected='true'");}%> >Oct </option>
+                                            <option value = '11' <%if(mm.equalsIgnoreCase("11")){out.println("selected='true'");}%> >Nov </option>
+                                            <option value = '12' <%if(mm.equalsIgnoreCase("12")){out.println("selected='true'");}%>>Dec </option>
+                                        </select>
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <input type="text" name="yyyy" maxlength="4" class="smallesttextbox" value="<%=yyyy%>" style='width:250px;'  />
+                                    </div>
+                                </div>
+                            </fieldset>
+                                    <fieldset>
+                                        <label>Gender</label>
+                                        <select name="sRegGender">
+                                            <option value="Male" <%if(sRegGender.equalsIgnoreCase("Male")){out.println("selected='true'");}%>>Male</option>
+                                            <option value="Female" <%if(sRegGender.equalsIgnoreCase("Female")){out.println("selected='true'");}%> >Female</option>
+                                        </select>
+                                    </fieldset>
+                                        <fieldset>
+                                            <label>Phone Number</label>
+                                            <input type="text" name="iUserContact" value="<%=iUserContact%>"/>
+                                        </fieldset>
+                                        <button class="button secondary" type="submit" name="Submit" value="Submit">Edit Profile</button>
+                    </form>
+                </div>
+            </div>
+        </body>
 </html>
 <%
 	try{
