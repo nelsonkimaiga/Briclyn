@@ -74,9 +74,7 @@
         <link type="text/css" rel="StyleSheet" href="css/style.css"/>
         <!--fonts-->
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
-        <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
-<script>
+        <script>
 function validate()
 {
 		if(document.frm.sFirstName.value=="")
@@ -130,54 +128,52 @@ function validate()
 }
 
 </script>
-    </head>
-    <body>
-        <%@include file="/comman/menu.jsp"%>
-        <div class="container">
-            <div class="row">
-                <div class="medium-4 large-4 columns" id="sidemenu">
-                    <%@include file="menu.jsp" %>
-                </div>
+</head>
+<body>
+    <%@include file="/comman/menu.jsp"%>
+    <div class="container">
+        <div class="row">
+            <div class="medium-4 large-4 columns" id="sidemenu">
+                <%@include file="menu.jsp"%>
+            </div>
+            <div class="medium-8 large-8 columns">
                 <%=nullconv((String)request.getAttribute("error"))%>
-                <div class="medium-8 large-8 columns">
-                    <h3>My Information</h3
-                    <form name="frm" action="editProfile.jsp" method="post" onsubmit="return validate()">
-                        <fieldset>
-                            <label>First Name</label>
-                            <input type="text" name="sFirstName" value="<%=sFirstName%>"/>
-                        </fieldset>
-                        <fieldset>
-                            <label>Last Name</label>
-                            <input type="text" name="sLastName" value="<%=sLastName%>"/>
-                        </fieldset>
-                        <fieldset>
-                            <label>City</label>
-                            <select name="iCityID">
-                                <option value="default" disabled>Select City</option>
-                                     <%
-                                         while (rsCity.next())
-                                         {
-
-                                             if(rsCity.getString("iCityID").equalsIgnoreCase(iCityID))
-
-                                             {
-                                     %>
-	 <option value="<%=rsCity.getInt("iCityID") %>" selected="selected"><%=rsCity.getString("iCityName")%></option>
-         <%}
-
-else
+                <h3>My Profile</h3><span><h4>My Information</h4></span>
+                <form name="frm" action="editProfile.jsp" method="post" onsubmit="return validate()">
+                    <fieldset>
+                        <label>First Name</label>
+                        <input type="text" name="sFirstName" value="<%=sFirstName%>">
+                    </fieldset>
+                    <fieldset>
+                        <label>Last Name</label>
+                        <input type="text" name="sLastName" value="<%=sLastName%>">
+                    </fieldset>
+                    <fieldset>
+                        <label>City</label>
+                        <select name="iCityID" class="smalltextbox">
+                            <option value="" >-- Select City --</option>
+                            <%
+                                while (rsCity.next())
+                                {
+                                    if(rsCity.getString("iCityID").equalsIgnoreCase(iCityID))
+                                    {
+                            %>
+                            <option value="<%=rsCity.getInt("iCityID") %>" selected="selected"><%=rsCity.getString("iCityName")%></option>
+                            <%}
+	 else
 	 {
-         %>
-	  <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
+	  %>
+          <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
 	 <%
 	 }
      }
       %>
-                            </select>
-                        </fieldset>
-                            <fieldset>
-                                <label>Location</label>
-                                <select>
+                        </select>
+                    </fieldset>
+                        <fieldset>
+                            <label>Location</label>
+                            <select name="iLocation" class="smalltextbox" id="iLocation">
+                                <option value="" >-- Select Location --</option>
                                       <%
        while (rsLocation.next())
      {
@@ -195,11 +191,11 @@ else
 	 }
     }
     %>
-                                </select>
-                            </fieldset>
+                            </select>
+                        </fieldset>
                             <fieldset>
                                 <label>Email</label>
-                                <input type="email" name="sRegEmail" value="<%=sRegEmail%>" size="50"/>
+                                <input type="text" name="sRegEmail" value="<%=sRegEmail%>" size="50">
                             </fieldset>
                             <fieldset>
                                 <label>Date of Birth</label>
@@ -240,10 +236,11 @@ else
                                             <input type="text" name="iUserContact" value="<%=iUserContact%>"/>
                                         </fieldset>
                                         <button class="button secondary" type="submit" name="Submit" value="Submit">Edit Profile</button>
-                    </form>
-                </div>
+                </form>
             </div>
-        </body>
+        </div>
+    </div>
+</body>
 </html>
 <%
 	try{
