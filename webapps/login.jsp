@@ -45,45 +45,29 @@
         <!--dynamic navbar-->
         <%@include file="/comman/menu.jsp"%>
         <div class="container">
-            <div class="large-6 large-centered columns">
-                <div id="leftbar">
+            <div class="row">
+                <div class="medium-4 large-4 columns">
                     <%@include file="menu.jsp" %>
-                </div>
+                </div>        
                 <%=nullconv(request.getParameter("error"))%>
-                <h3>Login</h3>
+                <div class="medium-8 large-8 columns">
+                    <h3>Login</h3>
                 <form name="frmLogin" action="doLogin.jsp" onsubmit="return validateForm()" method="post">
                     <fieldset>
-                        <label>Username</label>
+                        <label class="labels">Username</label>
                         <input type="text" name="login" placeholder="Username"/>
                     </fieldset>
                     <fieldset>
-                        <label>Password</label>
+                        <label class="labels">Password</label>
                         <input type="password" name="pwd" placeholder="Password"/>
                     </fieldset>
                     <button type="submit" name="submit" class="button secondary">Login</button>
                     <br>
                     <a href="forget.jsp"><span>Forget password</span></a> &nbsp;&nbsp;<a href="register.jsp">New User</a>
                 </form>
+                </div>
             </div>
         </div>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-
-<script>callETabID('5')</script>
-</body>
+                <script>callETabID('5')</script>
+    </body>
 </html>
