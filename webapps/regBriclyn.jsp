@@ -53,71 +53,29 @@
 		}
 %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link type="text/css" rel="StyleSheet" href="css/style.css" />
-<link type="text/css" rel="StyleSheet" href="css/menu.css" />
-<title>User Registration</title>
-</head>
-
-<body>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="5%">&nbsp;</td>
-    <td width="90%"><div class="header"><%@ include file="comman/header.jsp"%></div></td>
-    <td width="5%">&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@ include file="comman/logo.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@include file="/comman/menu.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="7%" valign="top">&nbsp;</td>
-        <td width="93%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td><h2>Registration Successfully!</h2></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Your registration is under activation process. Your profile will be reviewed for activation. It usually takes approximately 24 - 48 hours.</td>
-  </tr>
-</table>
-</td>
-      </tr>
-    </table></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><div class="footer"><%@ include file="comman/footer.jsp"%></div></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-
-</body>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>User Registration</title>
+        <!--foundation zurb-->
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link type="text/css" rel="StyleSheet" href="css/style.css"/>
+        <!--fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
+        <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+    </head>
+    <body>
+        <%@include file="/comman/menu.jsp"%>
+        <div class="container">
+            <h2>Registration Successfully!</h2>
+            <hr>
+            <h3>Your registration is under activation process. Your profile will be reviewed for activation. It usually takes approximately 24 - 48 hours.</h3>
+        </div>
+    </body>
 </html>
 <%
 	try{

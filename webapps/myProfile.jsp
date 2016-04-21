@@ -201,7 +201,7 @@ function validate()
                                 <label class="labels">Date of Birth</label>
                                 <div class="row large-12 large-centered columns">
                                     <div class="large-4 columns">
-                                        <input  type="text"  name="dd" maxlength="2"   class="smallesttextbox"  value="<%=dd%>"  style='width:250px;' />
+                                        <input  type="text"  name="dd" maxlength="2" value="<%=dd%>"  style='width:250px;' />
                                     </div>
                                     <div class="large-4 columns">
                                         <select name="mm"  class="smalldropdown" >
@@ -220,7 +220,7 @@ function validate()
                                         </select>
                                     </div>
                                     <div class="large-4 columns">
-                                        <input type="text" name="yyyy" maxlength="4" class="smallesttextbox" value="<%=yyyy%>" style='width:250px;'  />
+                                        <input type="text" name="yyyy" maxlength="4" value="<%=yyyy%>" style='width:250px;'  />
                                     </div>
                                 </div>
                             </fieldset>

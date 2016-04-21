@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
 <jsp:useBean id="dbConn" scope="request" class="com.villa.db.DBProperties"/>
 <%
@@ -31,13 +32,20 @@
 			e.printStackTrace();
 		}
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link type="text/css" rel="StyleSheet" href="css/style.css" />
-<link type="text/css" rel="StyleSheet" href="css/menu.css" />
-<title>Real Estate Registration</title>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Briclyn Registration</title>
+        <!--foundation zurb-->
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link type="text/css" rel="StyleSheet" href="css/style.css"/>
+        <!--fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
+        <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
 <script>
 function trim(s) 
 {
@@ -160,98 +168,34 @@ function init()
 }
 </script>
 </head>
-
-<body onload="init()">
-<form name="frm" action="regVillaMart.jsp" method="post" onsubmit="return validate()" >
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="5%">&nbsp;</td>
-    <td width="90%"><div class="header"><%@ include file="comman/header.jsp"%></div></td>
-    <td width="5%">&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@ include file="comman/logo.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@include file="/comman/menu.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="20%" valign="top"><div id="leftbar"><%@include file="menu.jsp" %></div></td>
-        <td width="5%" valign="top">&nbsp;</td>
-        <td width="75%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-   <td colspan="2" valign="top"><%=nullconv((String)request.getAttribute("error"))%></td>
-  </tr>
-    <tr>
-      <td width="22%" valign="top">&nbsp;</td>
-      <td width="78%" valign="top">&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="2"><h3>REGISTRATION FORM</h3></td>
-    </tr>
-	<tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-	<tr>
-      <td colspan="2"><h4>Business Information</h4></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-	 <tr>
-      <td>User Profile</td>
-      <td><select name="iUserLevel" class="smalldropdown" >
-          <option value="1">Individual User</option>
-          <option value="2">Agent/Brokers</option>
-		  <option value="3">Builder</option>
-		  <option value="4">Corporate</option>
-        </select></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td colspan="2"><h4>Personal Information</h4></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>First Name: </td>
-      <td><input type="text" name="sFirstName"/></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Last Name: </td>
-      <td><input type="text" name="sLastName"/></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-	<tr>
-      <td>Country:</td>
-      <td><select name="iCountryID" class="smalltextbox">
-          <option value="" >-- Select Country --</option>
+    <body onload="init()">
+        <%@include file="/comman/menu.jsp"%>
+        <div class="container large-6 large-centered columns">
+            <%=nullconv((String)request.getAttribute("error"))%>
+            <form name="frm" action="regBriclyn.jsp" method="post" autocomplete="off" onsubmit="return validate()" >
+                <h4 class="labels">Business Information</h4>
+                <fieldset>
+                    <label class="labels"></label>
+                    <select name="iUserLevel" class="smalldropdown" >
+                        <option value="1">Individual User</option>
+                        <option value="2">Agent/Brokers</option>
+                        <option value="3">Builder</option>
+                        <option value="4">Corporate</option>
+                    </select>
+                </fieldset>
+                <hr>Personal Information</hr>
+                <fieldset>
+                    <label class="labels">First Name</label>
+                    <input type="text" name="sFirstName" placeholder="First Name">
+                </fieldset>
+                <fieldset>
+                    <label class="labels">Last Name</label>
+                    <input type="text" name="sLastName" placeholder="Last Name">
+                </fieldset>
+                <fieldset>
+                    <label class="labels">Country</label>
+                    <select name="iCountryID">
+                        <option value="" >-- Select Country --</option>
      <%
      while (rsCountry.next())
      {
@@ -261,16 +205,11 @@ function init()
       }
       %>
     </select>
-	</td>
-	</tr>
-	<tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>City:</td>
-      <td><select name="iCityID" class="smalltextbox">
-          <option value="" >-- Select City --</option>
+                </fieldset>
+    <fieldset>
+        <label class="labels">City</label>
+        <select name="iCityID">
+            <option value="" >-- Select City --</option>
      <%
      while (rsCity.next())
      {
@@ -279,16 +218,12 @@ function init()
       <%
       }
       %>
-    </select></td>
-	</tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Location:</td>
-      <td><select name="iLocation" class="smalltextbox" id="iLocation" style="width:150px;">
-          <option value="" >-- Select Location --</option>
+    </select>
+    </fieldset>
+    <fieldset>
+        <label class="labels">Location</label>
+        <select name="iLocation" class="smalltextbox" id="iLocation">
+            <option value="" >-- Select Location --</option>
       <%
        while (rsLocation.next())
      {
@@ -297,120 +232,69 @@ function init()
       <%
       }
       %>
-        </select> </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>E-mail:</td>
-      <td><input type="text" name="sRegEmail"/></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Date of Birth: </td>
-      <td><input  type="text"  name="dd" maxlength="2"   class="smallesttextbox"  value='DD'  style='width:30px;' onKeyPress="return isNumberKey(event)"/>
-        <select name="mm"  class="smalldropdown" >
-          <option value = '01' >Jan </option>
-          <option value = '02' >Feb </option>
-          <option value = '03' >Mar </option>
-          <option value = '04' >Apr </option>
-          <option value = '05' >May </option>
-          <option value = '06' >Jun </option>
-          <option value = '07' >Jul </option>
-          <option value = '08' >Aug </option>
-          <option value = '09' >Sep </option>
-          <option value = '10' >Oct </option>
-          <option value = '11' >Nov </option>
-          <option value = '12' >Dec </option>
-        </select>
-    <input type="text" name="yyyy" maxlength="4" class="smallesttextbox" value="YYYY" style='width:45px;'  onKeyPress="return isNumberKey(event)"/>    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Gender:</td>
-      <td><select name="sRegGender" class="smalldropdown" >
-          <option value="Male">Male</option>
-          <option value="Female" >Female</option>
-        </select>      </td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-    <tr>
-      <td>Contact No: </td>
-      <td><input type="text" name="iUserContact" onKeyPress="return isNumberKey(event)"/></td>
-    </tr>
-    <tr>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-    </tr>
-	<tr>
-  <td colspan="2" valign="top"><h4>User Login Information</h4></td>
-  </tr>
-<tr>
-    <td width="22%">&nbsp;</td>
-    <td width="78%">&nbsp;</td>
-  </tr>
-   <tr>
-    <td>Create Username* : </td>
-    <td><input type="sUserID" name="sUserID"/></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  
-  <tr>
-    <td>Password * : </td>
-    <td><input type="password" name="sPassword"/></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>Confirm Password * : </td>
-    <td><input type="password" name="sCPassword"/></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><input type="submit" name="Submit" value="Register" /></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-</table></td>
-      </tr>
-    </table></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><div class="footer"><%@ include file="comman/footer.jsp"%></div></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
-</form>
-<script>callETabID('2')</script>
-</body>
+        </select> 
+    </fieldset>
+        <fieldset>
+            <label class="labels">Email</label>
+            <input type="email" name="sRegEmail" placeholder="Email">
+        </fieldset>
+                                    <fieldset>
+                                        <label class="labels">Date of Birth</label>
+                                <div class="row large-12 large-centered columns">
+                                    <div class="large-4 columns">
+                                        <input  type="text"  name="dd" maxlength="2" placeholder="DD"  style='width:150px;' onKeyPress="return isNumberKey(event)">
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <select name="mm"  class="smalldropdown" >
+                                            <option value = '01' >Jan </option>
+                                            <option value = '02' >Feb </option>
+                                            <option value = '03' >Mar </option>
+                                            <option value = '04' >Apr </option>
+                                            <option value = '05' >May </option>
+                                            <option value = '06' >Jun </option>
+                                            <option value = '07' >Jul </option>
+                                            <option value = '08' >Aug </option>
+                                            <option value = '09' >Sep </option>
+                                            <option value = '10' >Oct </option>
+                                            <option value = '11' >Nov </option>
+                                            <option value = '12' >Dec </option>
+                                        </select>
+                                    </div>
+                                    <div class="large-4 columns">
+                                        <input type="text" name="yyyy" maxlength="4" placeholder="YYYY" style='width:200px;'  onKeyPress="return isNumberKey(event)">
+                                    </div>
+                                </div>
+                            </fieldset>
+        <fieldset>
+            <label class="labels">Gender</label>
+            <select name="sRegGender" class="smalldropdown" >
+                <option value="Male">Male</option>
+                <option value="Female" >Female</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label class="labels">Phone Number</label>
+            <input type="text" name="iUserContact" onKeyPress="return isNumberKey(event)" placeholder="Phone Number">
+        </fieldset>
+        <br>
+        <h3>User Login Information</h3>
+        <fieldset>
+            <label class="labels">Create Username</label>
+            <input type="text" name="sUserID" placeholder="Username">            
+        </fieldset>
+        <fieldset>
+            <label class="labels">Password</label>
+            <input type="password" name="sPassword" placeholder="Password">
+        </fieldset>
+        <fieldset>
+            <label class="labels">Confirm Password</label>
+            <input type="password" name="sCPassword" placeholder="Confirm Password">
+        </fieldset>
+        <button type="submit" name="Submit" class="button success" value="Register">Register</button>
+            </form>
+        </div>
+        <script>callETabID('2')</script>
+    </body>
 </html>
 <%
 	try{

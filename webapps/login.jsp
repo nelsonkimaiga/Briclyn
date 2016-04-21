@@ -45,12 +45,8 @@
         <!--dynamic navbar-->
         <%@include file="/comman/menu.jsp"%>
         <div class="container">
-            <div class="row">
-                <div class="medium-4 large-4 columns">
-                    <%@include file="menu.jsp" %>
-                </div>        
-                <%=nullconv(request.getParameter("error"))%>
-                <div class="medium-8 large-8 columns">
+            <%=nullconv(request.getParameter("error"))%>
+            <div class="large-6 large-centered columns">
                     <h3>Login</h3>
                 <form name="frmLogin" action="doLogin.jsp" onsubmit="return validateForm()" method="post">
                     <fieldset>
@@ -67,7 +63,6 @@
                 </form>
                 </div>
             </div>
-        </div>
                 <script>callETabID('5')</script>
     </body>
 </html>
