@@ -67,12 +67,6 @@ thead th{
 	padding-left: 5px;
 }
 
-body {
-	margin: 0px 0px 0px 0px;
-	color: #444444;
-	font-size: 12px;
-	background-color: #ffffff;
-	}
 
 .body {
 	font-size: 12px;
@@ -141,15 +135,7 @@ UL {
 hr {
 	height: 1px;
 }
-/*a:link, a:visited {
-	color: #000066;
-	font-size: 11px;
-	text-decoration: none; 
-	}
-a:hover {
-	color: #000066;
-	text-decoration: underline; 
-	}*/
+
 /* Form Styles */
 .buttonOn {
 	border: 1px solid #444444;
@@ -203,18 +189,7 @@ textarea {
 		padding-right: 5px;
 		color: #00568C;
 	}
-	/*a.body:link, a.body:visited {
-		color: #444444;
-		font-size: 12px;
-/*		text-decoration: underline;*/
-		
 
-	/*a.body:hover {
-/*		color: #666666;
-		text-decoration: underline; */
-		
-
-	/* myArea is for my account, admin, logout, an about links*/
 	.myArea {
 		font-size: 11px;
 		font-weight: bold;
@@ -1079,8 +1054,16 @@ a.lnk:hover {
     text-decoration: none;
 }
 
-li a:hover{
+#sidemenu li a:hover{
     background-color: #555;
     color: #fff;
 }
 
+#sidemenu li{
+    text-align: left;
+}
+
+#sidemenu .active {
+    background-color: blue;
+    color: #fff;
+}

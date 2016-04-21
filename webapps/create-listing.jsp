@@ -140,7 +140,7 @@ function isNumberKey(evt)
         <div class="container">
             <div class="row">
                 <div class="large-4 columns medium-4 columns" id="sidemenu">
-                    <%@include file="menu.jsp" %>
+                    <%@include file="menu.jsp"%>
                 </div>
                 <div class="large-8 columns">
                         <h3 class="menu-headings">List Your Property</h3>

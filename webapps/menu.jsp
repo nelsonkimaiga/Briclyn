@@ -8,8 +8,8 @@ if(!(sUserType).equals(""))
    %>
 
    <div class="headers">My Menu</div>
-   <ul class="menu vertical">
-       <li class="active"><a href="myProfile.jsp">My Profile</a></li>
+   <ul class="menu vertical" id="sidemenu">
+       <li class="active" style="text-align: left;"><a href="myProfile.jsp">My Profile</a></li>
        <li><a href="myList.jsp">My Listing </a></li>
        <li><a href="myResponse.jsp">Response I Got</a></li>
        <li><a href="myPost.jsp">My Posting</a></li>
@@ -18,8 +18,8 @@ if(!(sUserType).equals(""))
    </ul>
 
 <div class="headers">Administrator</div>
-<ul class="categorylinks">
-		<li><a href="addCountry.jsp">Add Country</a></li>
+<ul class="menu vertical">
+		<li class="active"><a href="addCountry.jsp">Add Country</a></li>
 		<li><a href="viewCountry.jsp">Edit Country</a></li>
 		<li><a href="addState.jsp">Add State</a></li>
 		<li><a href="viewState.jsp">Edit State</a></li>
@@ -45,9 +45,9 @@ if(!(sUserType).equals(""))
   else if(sUserType.equalsIgnoreCase("2"))
   {
   %>
-  <div class="headers">My Estate</div>
-<ul class="categorylinks">
-		<li><a href="myProfile.jsp">My Profile</a></li>
+  <div class="headers">My Menu/div>
+<ul class="menu vertical" id="sidemenu">
+		<li class="active"><a href="myProfile.jsp">My Profile</a></li>
 		<li><a href="myList.jsp">My Listing </a></li>
 		<li><a href="myResponse.jsp">Response I Got</a></li>
 		<li><a href="myPost.jsp">My Posting</a></li>
@@ -56,8 +56,8 @@ if(!(sUserType).equals(""))
 </ul>
 
 <div class="headers">Administrator</div>
-<ul class="categorylinks">
-		<li><a href="addCountry.jsp">Add Country</a></li>
+<ul class="categorylinks" id="sidemenu">
+		<li class="active"><a href="addCountry.jsp">Add Country</a></li>
 		<li><a href="viewCountry.jsp">Edit Country</a></li>
 		<li><a href="addState.jsp">Add State</a></li>
 		<li><a href="viewState.jsp">Edit State</a></li>
@@ -76,9 +76,9 @@ if(!(sUserType).equals(""))
   else if(sUserType.equalsIgnoreCase("3"))
   {
   %>
-  <div class="headers">My Estate</div>
-<ul class="categorylinks">
-		<li><a href="myProfile.jsp">My Profile</a></li>
+  <div class="headers">My Menu</div>
+<ul class="menu vertical" id="sidemenu">
+		<li class="active"><a href="myProfile.jsp">My Profile</a></li>
 		<li><a href="myList.jsp">My Listing </a></li>
 		<li><a href="myResponse.jsp">Response I Got</a></li>
 		<li><a href="myPost.jsp">My Posting</a></li>
