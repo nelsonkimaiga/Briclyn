@@ -209,15 +209,15 @@ function isNumberKey(evt)
                                     </fieldset>
                                     <fieldset>
                                         <label class="labels">Price</label>
-                                        <input type="text" name="iTotalPrice" onKeyPress="return isNumberKey(event)"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in <%=sCurrency%>
+                                        <input type="text" name="iTotalPrice" onKeyPress="return isNumberKey(event)"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=sCurrency%>
                                     </fieldset>
                                     <fieldset>
-                                        <label>Price Negotiable?</label>
+                                        <label class="labels">Price Negotiable?</label>
                                         <input name="cPriceNegotiable" type="radio" value="Y" /><label>Yes</label>
                                         <input name="cPriceNegotiable" type="radio" value="N"  checked="checked"/><label>No</label>
                                     </fieldset>
                                     <fieldset>
-                                        <label>Bedroom</label>
+                                        <label class="labels">Bedroom</label>
                                         <select name='bedroom'>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -233,7 +233,7 @@ function isNumberKey(evt)
                                         </select>
                                     </fieldset>
                                     <fieldset>
-                                        <label>Floor Number</label>
+                                        <label class="labels">Floor Number</label>
                                         <select name='floornumber'>
                                             <option value="1">Basement</option>
                                             <option value="2">Ground Floor</option>

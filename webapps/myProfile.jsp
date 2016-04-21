@@ -141,15 +141,15 @@ function validate()
                 <h3>My Profile</h3><span><h4>My Information</h4></span>
                 <form name="frm" action="editProfile.jsp" method="post" onsubmit="return validate()">
                     <fieldset>
-                        <label>First Name</label>
+                        <label class="labels">First Name</label>
                         <input type="text" name="sFirstName" value="<%=sFirstName%>">
                     </fieldset>
                     <fieldset>
-                        <label>Last Name</label>
+                        <label class="labels">Last Name</label>
                         <input type="text" name="sLastName" value="<%=sLastName%>">
                     </fieldset>
                     <fieldset>
-                        <label>City</label>
+                        <label class="labels">City</label>
                         <select name="iCityID" class="smalltextbox">
                             <option value="" >-- Select City --</option>
                             <%
@@ -171,7 +171,7 @@ function validate()
                         </select>
                     </fieldset>
                         <fieldset>
-                            <label>Location</label>
+                            <label class="labels">Location</label>
                             <select name="iLocation" class="smalltextbox" id="iLocation">
                                 <option value="" >-- Select Location --</option>
                                       <%
@@ -194,11 +194,11 @@ function validate()
                             </select>
                         </fieldset>
                             <fieldset>
-                                <label>Email</label>
+                                <label class="labels">Email</label>
                                 <input type="text" name="sRegEmail" value="<%=sRegEmail%>" size="50">
                             </fieldset>
                             <fieldset>
-                                <label>Date of Birth</label>
+                                <label class="labels">Date of Birth</label>
                                 <div class="row large-12 large-centered columns">
                                     <div class="large-4 columns">
                                         <input  type="text"  name="dd" maxlength="2"   class="smallesttextbox"  value="<%=dd%>"  style='width:250px;' />
@@ -225,14 +225,14 @@ function validate()
                                 </div>
                             </fieldset>
                                     <fieldset>
-                                        <label>Gender</label>
+                                        <label class="labels">Gender</label>
                                         <select name="sRegGender">
                                             <option value="Male" <%if(sRegGender.equalsIgnoreCase("Male")){out.println("selected='true'");}%>>Male</option>
                                             <option value="Female" <%if(sRegGender.equalsIgnoreCase("Female")){out.println("selected='true'");}%> >Female</option>
                                         </select>
                                     </fieldset>
                                         <fieldset>
-                                            <label>Phone Number</label>
+                                            <label class="labels">Phone Number</label>
                                             <input type="text" name="iUserContact" value="<%=iUserContact%>"/>
                                         </fieldset>
                                         <button class="button secondary" type="submit" name="Submit" value="Submit">Edit Profile</button>

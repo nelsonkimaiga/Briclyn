@@ -70,14 +70,14 @@
             <form name="fSearch" method="post" action="searchRes.jsp">
                 <h5 class="hdng">Search your property</h5>
                 <fieldset>
-                    <label>Transaction Type</label>
+                    <label class="labels">Transaction Type</label>
                     <select  name="tranType">
                         <option value="1">Buy</option>
                         <option value="2">Rent/Lease</option>
                     </select>
                 </fieldset>
                 <fieldset>
-                    <label>Property Type</label>
+                    <label class="labels">Property Type</label>
                     <select name="property_type" class="textbox" onChange="javascript:disable_combo(this.value,'frm_first');">
                         <%
                             while (rsProperty.next())
@@ -89,7 +89,7 @@
                     </select>
                 </fieldset>
                     <fieldset>
-                        <label>City</label>
+                        <label class="labels">City</label>
                         <select name="iCityID" class="smalltextbox">
                             <option value="" >-- Select City --</option>
                             <%
@@ -102,7 +102,7 @@
                         </select>
                     </fieldset>
                         <fieldset>
-                            <label>Location</label>
+                            <label class="labels">Location</label>
                             <select name="iLocation" class="smalltextbox" id="iLocation">
                                 <option value="" >-- Select Location --</option>
                                 <%
@@ -115,7 +115,7 @@
                             </select>
                         </fieldset>
                             <fieldset>
-                                <label>Budget</label>
+                                <label class="labels">Budget</label>
                                 <select name="budget">
                                     <option value="">-- Select Budget --</option>
                                     <%
@@ -128,7 +128,7 @@
                                 </select>
                             </fieldset>
                                 <fieldset>
-                                    <label>Minimum Bedroom</label>
+                                    <label class="labels">Minimum Bedroom</label>
                                     <select name='bedroom' class='textbox'>
                                         <option value="">Bed Room</option>
                                         <option value="1"  >1</option>

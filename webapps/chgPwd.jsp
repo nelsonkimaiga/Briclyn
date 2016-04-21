@@ -58,15 +58,15 @@ function validate()
                     <%=nullconv((String)request.getAttribute("error"))%>
                     <form name="frm" action="savePwd.jsp" method="post" onsubmit="return validate()">
                         <fieldset>
-                            <label>Old Password</label>
+                            <label class="labels">Old Password</label>
                             <input type="password" name="sOldPwd" placeholder="Old Password"/>
                         </fieldset>
                         <fieldset>
-                            <label>New Password</label>
+                            <label class="labels">New Password</label>
                             <input type="password" name="sPassword" placeholder="New Password"/>
                         </fieldset>
                         <fieldset>
-                            <label>Confirm Password</label>
+                            <label class="labels">Confirm Password</label>
                             <input type="password" name="sCPassword" placeholder="Confirm Password"/>
                         </fieldset>
                         <button type="submit" class="button secondary" name="Submit" value="Change">Change Password</button>
