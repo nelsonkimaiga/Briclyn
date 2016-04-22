@@ -8,7 +8,7 @@ public class DBProperties {
 	public static Connection getDBConnection() throws Exception{
 		Connection conn = null;
 		Class.forName("com.mysql.jdbc.Driver").newInstance();
-		conn = DriverManager.getConnection("jdbc:mysql://localhost:3307/project","root", "303seminarian");
+		conn = DriverManager.getConnection("jdbc:mysql://197.248.5.16/cityscen_project","cityscen_kimaiga","nelsonkimaiga2016");
       return conn;
 	}
 	
@@ -19,14 +19,13 @@ public class DBProperties {
 		
 		String sDriverName=rb.getString("driver.name");
 		String sServerName=rb.getString("server.name");
-		String sPort=rb.getString("port.no");
 		String sDatabaseName=rb.getString("database.name");
 		String sUserName=rb.getString("user.name");
 		String sPassword=rb.getString("password");
 		
 		
 		Class.forName(sDriverName).newInstance();
-		conn = DriverManager.getConnection("jdbc:mysql://"+sServerName+":"+sPort+"/"+sDatabaseName,sUserName, sPassword);
+		conn = DriverManager.getConnection("jdbc:mysql://"+sServerName+"/"+sDatabaseName,sUserName, sPassword);
       return conn;
 	}
 }

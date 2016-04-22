@@ -32,7 +32,7 @@
              <%}
              %>
              <li><a href="create-listing.jsp">List Your Property</a></li>
-             <li><a href="create-posting.jsp">Post Your Requirement</a></li>
+             <!--<li><a href="create-posting.jsp">Post Your Requirement</a></li>-->
              <li><a href="<%=fileCall%>"><span><%=sSessonUserID%> <%=status%></span></a></li>
         </ul>
     </div>
