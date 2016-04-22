@@ -19,13 +19,14 @@ public class DBProperties {
 		
 		String sDriverName=rb.getString("driver.name");
 		String sServerName=rb.getString("server.name");
+		String sPort=rb.getString("port.no");
 		String sDatabaseName=rb.getString("database.name");
 		String sUserName=rb.getString("user.name");
 		String sPassword=rb.getString("password");
 		
 		
 		Class.forName(sDriverName).newInstance();
-		conn = DriverManager.getConnection("jdbc:mysql://"+sServerName+"/"+sDatabaseName,sUserName, sPassword);
+		conn = DriverManager.getConnection("jdbc:mysql://"+sServerName+":"+sPort+"/"+sDatabaseName,sUserName, sPassword);
       return conn;
 	}
 }
