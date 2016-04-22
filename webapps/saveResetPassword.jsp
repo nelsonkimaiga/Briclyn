@@ -1,8 +1,10 @@
 <%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
 <jsp:useBean id="dbConn" scope="request" class="com.villa.db.DBProperties"/>
 <%
-	Connection conn = null;
-	conn=dbConn.getConnection();
+	Connection conn=null;
+//    conn=dbConn.getConnection();
+    Class.forName("com.mysql.jdbc.Driver").newInstance();
+    conn = DriverManager.getConnection("jdbc:mysql://197.248.5.16/cityscen_project","cityscen_kimaiga","nelsonkimaiga2016");
 
 	PreparedStatement psInsertPwd=null;
 	PreparedStatement psDeletePwd=null;

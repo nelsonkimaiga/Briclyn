@@ -19,7 +19,9 @@ String[] chbx;
 %>
 <%
 	Connection conn=null;
-	conn=dbConn.getConnection();
+//    conn=dbConn.getConnection();
+    Class.forName("com.mysql.jdbc.Driver").newInstance();
+    conn = DriverManager.getConnection("jdbc:mysql://197.248.5.16/cityscen_project","cityscen_kimaiga","nelsonkimaiga2016");
 	
 	PreparedStatement psProperty=null;
 	

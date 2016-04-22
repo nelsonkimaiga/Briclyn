@@ -2,8 +2,10 @@
 <jsp:useBean id="dbConn" scope="request" class="com.villa.db.DBProperties"/>
 <%@ include file="sessionchk.jsp"%>
 <%
-	Connection conn = null;
-	conn=dbConn.getConnection();
+	Connection conn=null;
+//    conn=dbConn.getConnection();
+    Class.forName("com.mysql.jdbc.Driver").newInstance();
+    conn = DriverManager.getConnection("jdbc:mysql://197.248.5.16/cityscen_project","cityscen_kimaiga","nelsonkimaiga2016");
 	
 	PreparedStatement psInsertBudget=null;
 	String sBudgetName=request.getParameter("sBudgetName");
