@@ -28,13 +28,20 @@ Connection conn=null;
 		e.printStackTrace();
 	}
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link type="text/css" rel="StyleSheet" href="css/style.css" />
-<link type="text/css" rel="StyleSheet" href="css/menu.css" />
-<title>Edit Country</title>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Edit Country</title>
+        <!--foundation zurb-->
+        <link rel="stylesheet" href="css/foundation.css" />
+        <link type="text/css" rel="StyleSheet" href="css/style.css"/>
+        <!--fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
+        <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
 <script>
 	function validate()
 	{
@@ -64,16 +71,38 @@ Connection conn=null;
 	 document.frm.submit();
 	 }
 	}
-</script>  
-</head>
+</script>
+    </head>
+    <body>
+        <%@ include file="comman/header.jsp"%>
+        <div class="container">
+            <div class="row">
+                <div class="medium-4 large-4 columns" id="sidemenu">
+                    <%@include file="menu.jsp" %>
+                </div>
+                <div class="medium-8 large-8 columns">
+                    <form name="frm" action="saveECountry.jsp" onSubmit="return validate()">
+                        <input type="hidden" name="iCountryID" value="<%=iCountryID%>">
+                        <%=nullconv((String)request.getAttribute("error"))%>
+                        <fieldset>
+                            <label class="labels">Country Name</label>
+                            <input type="text" name="sCountryName" value="<%=sCountryName%>"/>
+                        </fieldset>
+                        <button type="submit" name="Submit" value="Edit" class="button primary">Edit</button>
+                        <input type="button" name="cancel" value="Cancel" class="button secondary" onclick="cancalit()"/>
+                        <input type="button" name="delete" value="Delete" class="button alert" onclick="deleteRecord()"/>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        
 
-<body>
-<form name="frm" action="saveECountry.jsp" onSubmit="return validate()">
-<input type="hidden" name="iCountryID" value="<%=iCountryID%>">
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="5%">&nbsp;</td>
-    <td width="90%"><div class="header"><%@ include file="comman/header.jsp"%></div></td>
+    <td width="90%"><div class="header"></div></td>
     <td width="5%">&nbsp;</td>
   </tr>
   <tr>
@@ -95,12 +124,12 @@ Connection conn=null;
     <td>&nbsp;</td>
     <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
-        <td width="20%" valign="top"><div id="leftbar"><%@include file="menu.jsp" %></div></td>
+        <td width="20%" valign="top"><div id="leftbar"></div></td>
         <td width="5%" valign="top">&nbsp;</td>
         <td width="75%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="16%">&nbsp;</td>
-    <td width="84%"><%=nullconv((String)request.getAttribute("error"))%></td>
+    <td width="84%"></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
