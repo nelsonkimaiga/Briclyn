@@ -41,52 +41,14 @@
         <script type="text/javascript" src="js/jquery-1.2.6.js"></script>
         <script type="text/javascript" src="js/jquery.cycle.all.js"></script>
 </head>
-</head>
-
 <body>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td width="5%">&nbsp;</td>
-    <td width="90%"><div class="header"><%@ include file="comman/header.jsp"%></div></td>
-    <td width="5%">&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@ include file="comman/logo.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><%@include file="/comman/menu.jsp"%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
-      <tr>
-        <td width="20%" valign="top"><div id="leftbar"><%@include file="menu.jsp" %></div></td>
-        <td width="5%" valign="top">&nbsp;</td>
-        <td width="75%" valign="top"><h2>Currency is Updated successfully!</h2></td>
-      </tr>
-    </table></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td><div class="footer"><%@ include file="comman/footer.jsp"%></div></td>
-    <td>&nbsp;</td>
-  </tr>
-</table>
+    <%@include file="/comman/menu.jsp"%>
+    <div class="medium-4 columns large-4 columns">
+        <%@include file="menu.jsp" %>
+    </div>
+    <div class="medium-8 large-4 columns">
+        <h2>Currency has been Updated successfully!</h2>
+    </div>
 </body>
 </html>
 <%
