@@ -1068,3 +1068,105 @@ a.lnk:hover {
 .labels{
     color: #fff;
 }
+
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.masthead {
+    padding: 15px;
+    position: relative;
+    z-index: 2000;
+    width: 100%;
+    font-family: 'Raleway', serif;
+    transition: all .5s ease;
+}
+
+.masthead-brand {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.masthead-brand img {
+    width: 26px;
+    transition: all .5s ease;
+}
+
+.masthead-nav > li {
+    display: inline-block;
+}
+
+.masthead-nav > li + li {
+    margin-left: 10px;
+}
+
+.masthead-nav > li > a {
+    padding: 20px;
+    padding-right: 0;
+    padding-left: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.masthead-nav > li > a:hover,
+.masthead-nav > li > a:focus {
+    background-color: transparent;
+}
+
+.masthead-nav > .active > a,
+.masthead-nav > .active > a:hover,
+.masthead-nav > .active > a:focus {
+    color: #7afbc4;
+}
+
+.masthead-brand {
+    float: left;
+}
+
+.masthead-nav {
+    float: right;
+}
+
+.masthead {
+    position: fixed;
+    top: 0;
+}
+
+.nav {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+    .masthead-brand img {
+        width: 48px;
+    }
+    .masthead-nav > li + li {
+        margin-left: 20px;
+    }
+    .masthead-nav > li > a {
+        font-size: inherit;
+    }
+    .section-title {
+        font-size: 48px;
+        margin: 50px 0 30px 0;
+    }
+    p {
+        font-size: 22px;
+    }
+}
+
+.sticky .masthead-brand img {
+    width: 26px;
+}
+
+.sticky.masthead {
+    background: #00196F;
+    padding: 3px 15px;
+}
+

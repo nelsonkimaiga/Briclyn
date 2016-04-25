@@ -68,6 +68,7 @@
     <body>
         <!--dynamic navbar-->
         <%@include file="/comman/menu.jsp"%>
+        <br>
         <div class="large-6 large-centered columns">
             <form name="fSearch" method="post" action="searchRes.jsp">
                 <h5 class="hdng">Search your property</h5>
@@ -150,18 +151,18 @@
             </form>
         </div>
         <!--footer-->
-        <div class="footer">
+<!--        <div class="footer">
             <div class="copy">
                 <div class="container">
                     <p>All Rights Reserved |<a href="">Briclyn Kenya</a></p>
                 </div>
-                <!-- curent date and year to appear on footer-->
+                 curent date and year to appear on footer
                 &copy; Briclyn Kenya.
                 <script type="text/javascript">
                     document.write(new Date().getFullYear());
                 </script>
             </div>
-        </div>                        
+        </div>                        -->
                                 <script type="text/javascript">
                                     callETabID('0')
                                                                     </script>

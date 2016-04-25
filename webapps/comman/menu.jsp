@@ -17,23 +17,18 @@
         sSessonUserID="Hi!  "+nullconv((String)session.getAttribute("sUsername"));
     }
 %>
-<div class="top-bar">
-    <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
-            <li class="menu-text">Briclyn Kenya</li>
-            <li></li>
-            <li><a href="index.jsp">Home</a></li>
-            <li><a href="doSearch.jsp">Search</a></li>
+    <!--<h3 class="masthead-brand"><a href=""><img src="" class="image-logo" alt="Briclyn Kenya"></a></h3>-->
+    <nav class="small-6 medium-10 large-12 columns">
+    <ul class="nav masthead-nav">
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="doSearch.jsp">Search</a></li>
              <%
                     if(sSessonUserID.equals(""))
                     {
              %>
-            <li><a href="register.jsp">Register</a></li>
-             <%}
-             %>
-             <li><a href="create-listing.jsp">List Your Property</a></li>
-             <!--<li><a href="create-posting.jsp">Post Your Requirement</a></li>-->
-             <li><a href="<%=fileCall%>"><span><%=sSessonUserID%> <%=status%></span></a></li>
-        </ul>
-    </div>
-</div>
+        <li><a href="register.jsp">Register</a></li>
+                <%}%>
+        <li><a href="create-listing.jsp">List Your Property</a></li>
+        <li><a href="<%=fileCall%>"><span><%=sSessonUserID%> <%=status%></span></a></li>
+    </ul>
+</nav>
