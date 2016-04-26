@@ -92,9 +92,9 @@
                     </select>
                 </fieldset>
                     <fieldset>
-                        <label class="labels">City</label>
-                        <select name="iCityID" class="smalltextbox">
-                            <option value="" >-- Select City --</option>
+                        <label class="labels">Region</label>
+                        <select name="iCityID" class="">
+                            <option value="default" selected disabled>Select Region</option>
                             <%
                                 while (rsCity.next())
                                 {
@@ -105,9 +105,9 @@
                         </select>
                     </fieldset>
                         <fieldset>
-                            <label class="labels">Location</label>
-                            <select name="iLocation" class="smalltextbox" id="iLocation">
-                                <option value="" >-- Select Location --</option>
+                            <label class="labels">City</label>
+                            <select name="iLocation" class="" id="iLocation">
+                                <option value="default" selected disabled>Select City</option>
                                 <%
                                     while (rsLocation.next())
                                     {
