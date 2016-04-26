@@ -152,7 +152,7 @@ function isNumberKey(evt)
                                 <input type="text" name="title" placeholder="Property Title">
                             </fieldset>
                             <fieldset>
-                                <label class="menu-headings">Transaction type (E.g Sale or rent?</label>
+                                <label class="labels">Transaction type (E.g Sale or rent?</label>
                                 <select name="tranType">
                                     <option value="default" selected disabled>Select a transaction type</option>
                                     <option value="1">Sell</option>
@@ -180,9 +180,9 @@ function isNumberKey(evt)
                                 <input type="text" name="sPropertyAddress"/>
                             </fieldset>
                             <fieldset>
-                                <label class="labels">City</label>
+                                <label class="labels">Region</label>
                                 <select name="iCityID">
-                                    <option value="default" selected disabled>Select City</option>
+                                    <option value="default" selected disabled>Select Region</option>
                                 <%
                                     while (rsCity.next())
                                     {
@@ -193,9 +193,9 @@ function isNumberKey(evt)
                                 </select>
                             </fieldset>
                                 <fieldset>
-                                    <label class="labels">Location</label>
+                                    <label class="labels">City</label>
                                     <select name="iLocation" class="smalltextbox" id="iLocation">
-                                        <option value="" >-- Select Location --</option>
+                                        <option value="default" selected disabled>Select City</option>
                                 <%
                                     while (rsLocation.next())
                                     {

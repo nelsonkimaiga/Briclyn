@@ -1,31 +1,53 @@
-<%@ page contentType="text/html; charset=iso-8859-1" language="java" errorPage="" %>
+<%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*" errorPage="" %>
+<jsp:useBean id="dbConn" scope="request" class="com.villa.db.DBProperties"/>
 <%@ include file="sessionchk.jsp"%>
+<%
+Connection conn=null;
+//    conn=dbConn.getConnection();
+    Class.forName("com.mysql.jdbc.Driver").newInstance();
+    conn = DriverManager.getConnection("jdbc:mysql://197.248.5.16/cityscen_project","cityscen_kimaiga","nelsonkimaiga2016");
+
+			PreparedStatement psLocation=null;
+			ResultSet rsLocation=null;
+
+            String sqlLocation="SELECT * FROM citymaster c ";
+			
+      	    psLocation=conn.prepareStatement(sqlLocation);
+			rsLocation=psLocation.executeQuery();
+%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link type="text/css" rel="StyleSheet" href="css/style.css" />
 <link type="text/css" rel="StyleSheet" href="css/menu.css" />
-<title>Add city</title>
+<title>Add Location</title>
 <script>
 function validate()
 {
+		if(document.frm.sLocationName.value=="")
+		{
+			alert("Please fill location name");
+			document.frm.sLocationName.focus();
+			return false;
+		}
 		if(document.frm.sCityName.value=="")
 		{
 			alert("Please fill city name");
 			document.frm.sCityName.focus();
 			return false;
 		}
- }
+ } 
 function init()
 {
-  document.frm.sCityName.focus();
+  document.frm.sLocationName.focus();
 } 
-</script> 
+ </script> 
 </head>
 
 <body onLoad="init()">
-<form name="frm" action="saveCity.jsp" onSubmit="return validate()">
+<form name="frm" action="saveLocation.jsp" onSubmit="return validate()">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="5%">&nbsp;</td>
@@ -55,26 +77,40 @@ function init()
         <td width="5%" valign="top">&nbsp;</td>
         <td width="75%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td>&nbsp;</td>
-    <td><%=nullconv((String)request.getAttribute("error"))%></td>
-    <td>&nbsp;</td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td width="27%">&nbsp;</td>
+    <td colspan="2"><%=nullconv((String)request.getAttribute("error"))%></td>
   </tr>
   <tr>
     <td colspan="3"><h3>Add City</h3></td>
   </tr>
   <tr>
     <td>&nbsp;</td>
+    <td width="69%">&nbsp;</td>
+    <td width="4%">&nbsp;</td>
+  </tr>
+  <tr>
+    <td>Location Name</td>
+    <td><input type="text" name="sLocationName" /></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td>City Name</td>
-    <td><input type="text" name="sCityName" /></td>
+    <td>City Under</td>
+    <td><select name="iCityID" class="smalltextbox">
+        <option value="" >-- Select City --</option>
+        <%
+     while (rsLocation.next())
+     {
+      %>
+        <option value="<%=rsLocation.getInt("iCityID") %>"><%=rsLocation.getString("iCityName")%></option>
+        <%
+      }
+      %>
+      </select></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
@@ -85,6 +121,11 @@ function init()
   <tr>
     <td>&nbsp;</td>
     <td><input type="submit" name="submit" value="Save" /></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
 </table></td>
@@ -106,3 +147,21 @@ function init()
 </form>
 </body>
 </html>
+<%
+        try{
+             if(psLocation!=null){
+                 psLocation.close();
+             }
+             if(rsLocation!=null){
+                 rsLocation.close();
+             }
+			 
+             if(conn!=null){
+              conn.close();
+             }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+%>

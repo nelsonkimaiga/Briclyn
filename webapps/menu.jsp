@@ -23,10 +23,10 @@ if(!(sUserType).equals(""))
 		<li><a href="viewCountry.jsp">Edit Country</a></li>
 		<li><a href="addState.jsp">Add State</a></li>
 		<li><a href="viewState.jsp">Edit State</a></li>
+		<li><a href="addRegion.jsp">Add Region</a></li>
+		<li><a href="viewRegion.jsp">Edit Region</a></li>
 		<li><a href="addCity.jsp">Add City</a></li>
 		<li><a href="viewCity.jsp">Edit City</a></li>
-		<li><a href="addLocation.jsp">Add Location</a></li>
-		<li><a href="viewLocation.jsp">Edit Location</a></li>
 		<li><a href="addproperty.jsp">Add Property</a></li>
 		<li><a href="viewproperty.jsp">Edit Property</a></li>
 		<li><a href="currency.jsp">Add Currency</a></li>

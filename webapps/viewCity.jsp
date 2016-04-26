@@ -2,23 +2,23 @@
 <jsp:useBean id="dbConn" scope="request" class="com.villa.db.DBProperties"/>
 <%@ include file="sessionchk.jsp"%>
 <%
-	Connection conn=null;
+		Connection conn=null;
 //    conn=dbConn.getConnection();
     Class.forName("com.mysql.jdbc.Driver").newInstance();
     conn = DriverManager.getConnection("jdbc:mysql://197.248.5.16/cityscen_project","cityscen_kimaiga","nelsonkimaiga2016");
-
-	PreparedStatement psCity=null;
-	ResultSet rsCity=null;
-	
-	try{
-		String sqlCity="SELECT * FROM citymaster c ";
-		psCity=conn.prepareStatement(sqlCity);
-		rsCity=psCity.executeQuery();
-	}
-	catch(Exception e)
-	{
-		e.printStackTrace();
-	}
+		
+		PreparedStatement psLocation=null;
+		ResultSet rsLocation=null;
+		
+		try{
+			String sqlLocation="SELECT * FROM locationmaster l left join citymaster c on c.iCityID=l.iCityID";
+			psLocation=conn.prepareStatement(sqlLocation);
+			rsLocation=psLocation.executeQuery();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -26,12 +26,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 <link type="text/css" rel="StyleSheet" href="css/style.css" />
 <link type="text/css" rel="StyleSheet" href="css/menu.css" />
-<title>View city</title>
+<title>View Location</title>
 <script>
-	function goRecord(iCityID)
-	{
-	  window.open("editCity.jsp?iCityID="+iCityID,"_self")
-	}
+function goRecord(iLocationID)
+{
+  window.open("editLocation.jsp?iLocationID="+iLocationID,"_self")
+}
 </script>
 </head>
 
@@ -65,43 +65,49 @@
         <td width="5%" valign="top">&nbsp;</td>
         <td width="75%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-    <td colspan="3"><h3>View City</h3></td>
+    <td>&nbsp;</td>
+    <td colspan="3"><h3>View Location</h3></td>
+    <td>&nbsp;</td>
   </tr>
   <tr>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td colspan="2"><%=nullconv((String)request.getAttribute("error"))%></td>
-  </tr>
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
     <td colspan="3"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="br">
-  <tr>
-    <td class="hspry">City Name</td>
-    <td class="hspry">Created By</td>
-    </tr>
-     <%
-     while (rsCity.next())
+        <tr>
+          <td width="35%" class="hspry">Location  Name</td>
+          <td width="24%" class="hspry">Under City Name</td>
+          <td width="41%" class="hspry">Created By</td>
+        </tr>
+        <%
+     while (rsLocation.next())
      {
       %>
-  <tr>
-    <td onclick="goRecord('<%=rsCity.getInt("iCityID") %>')" style="padding-left:5px; cursor:pointer"><%=rsCity.getString("iCityName")%></td>
-    <td onclick="goRecord('<%=rsCity.getInt("iCityID") %>')" style="padding-left:5px; cursor:pointer"><%=nullconv(rsCity.getString("sCreatedBy"))%>&nbsp;</td>
-    </tr>
-    <%
+        <tr>
+          <td onclick="goRecord('<%=rsLocation.getInt("iLocationID") %>')" class="pd"><%=rsLocation.getString("iLocationName")%>&nbsp;</td>
+          <td onclick="goRecord('<%=rsLocation.getInt("iLocationID") %>')" class="pd"><%=nullconv(rsLocation.getString("iCityName"))%>&nbsp;</td>
+          <td onclick="goRecord('<%=rsLocation.getInt("iLocationID") %>')" class="pd"><%=nullconv(rsLocation.getString("sCreatedBy"))%>&nbsp;</td>
+        </tr>
+        <%
 	}
 	%>
-</table></td>
-  </tr>
-  
-  <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+      </table></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
@@ -125,20 +131,19 @@
 </body>
 </html>
 <%
-	try{
-		 if(psCity!=null){
-			 psCity.close();
-		 }
-		 if(rsCity!=null){
-			 rsCity.close();
-		 }
-		 
-		 if(conn!=null){
-		  conn.close();
-		 }
-	}
-	catch(Exception e)
-	{
-		e.printStackTrace();
-	}
+        try{
+             if(psLocation!=null){
+                 psLocation.close();
+             }
+			 if(rsLocation!=null){
+                 rsLocation.close();
+             }
+             if(conn!=null){
+              conn.close();
+             }
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
 %>
