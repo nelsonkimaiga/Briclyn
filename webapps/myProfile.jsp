@@ -140,7 +140,7 @@ function validate()
             </div>
             <div class="medium-8 large-8 columns">
                 <%=nullconv((String)request.getAttribute("error"))%>
-                <h3>My Profile</h3><span><h4>My Information</h4></span>
+                <h4>My Information</h4>
                 <form name="frm" action="editProfile.jsp" method="post" onsubmit="return validate()">
                     <fieldset>
                         <label class="labels">First Name</label>
@@ -151,9 +151,8 @@ function validate()
                         <input type="text" name="sLastName" value="<%=sLastName%>">
                     </fieldset>
                     <fieldset>
-                        <label class="labels">City</label>
+                        <label class="labels">Region</label>
                         <select name="iCityID" class="smalltextbox">
-                            <option value="" >-- Select City --</option>
                             <%
                                 while (rsCity.next())
                                 {
@@ -175,7 +174,6 @@ function validate()
                         <fieldset>
                             <label class="labels">Location</label>
                             <select name="iLocation" class="smalltextbox" id="iLocation">
-                                <option value="" >-- Select Location --</option>
                                       <%
        while (rsLocation.next())
      {

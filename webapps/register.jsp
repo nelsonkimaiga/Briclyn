@@ -209,9 +209,9 @@ function init()
     </select>
                 </fieldset>
     <fieldset>
-        <label class="labels">City</label>
+        <label class="labels">Region</label>
         <select name="iCityID">
-            <option value="" >-- Select City --</option>
+            <option value="default" selected disabled>Select Region</option>
      <%
      while (rsCity.next())
      {
@@ -223,9 +223,9 @@ function init()
     </select>
     </fieldset>
     <fieldset>
-        <label class="labels">Location</label>
+        <label class="labels">City</label>
         <select name="iLocation" class="smalltextbox" id="iLocation">
-            <option value="" >-- Select Location --</option>
+            <option value="default" selected disabled>Select City</option>
       <%
        while (rsLocation.next())
      {
