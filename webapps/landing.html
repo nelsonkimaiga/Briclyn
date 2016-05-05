@@ -9,7 +9,7 @@
         <title>B&C Ventures|Home</title>
         <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" type="text/css" href="css/foundation.css">
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
         <!--foundation icons-->
         <link rel="stylesheet" type="text/css" href="css/foundation-icons.css">
         <!--fonts-->
@@ -17,30 +17,6 @@
         <!--foundation icons cdn-->
         <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel="stylesheet" type="text/css">
         <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
-        <!-- form validation -->
-        <script type="text/javascript">
-            function validateForm() {
-                var x = document.forms["searchForm"]["location"].value;
-                var y = document.forms["searchForm"]["propertytype"].value;
-                var z = document.forms["searchForm"]["price"].value;
-
-                if (x == null || x == "") {
-                    alert("Name must be filled out");
-                    return false;
-                }
-
-                if (y == null || y == "") {
-                    alert("Property type must be filled out");
-                    return false;
-                }
-                
-                if (z == null || z == "") {
-                    alert("Price must be filled out");
-                    return false;
-                }
-                return true;
-            }
-        </script>
     </head>
     <body>
         <div class="top-bar">
