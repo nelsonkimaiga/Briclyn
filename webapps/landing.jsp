@@ -1,3 +1,10 @@
+<%-- 
+    Document   : landing
+    Created on : May 11, 2016, 11:26:36 AM
+    Author     : kimaiga
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -170,3 +177,4 @@
         <script src="js/foundation.js"></script>
     </body>
 </html>
+

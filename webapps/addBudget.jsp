@@ -60,7 +60,7 @@ function isNumberKey(evt)
 function init()
 {
   document.frm.sBudgetName.focus();
-} 
+}
 </script>
     </head>
     <body onLoad="init()">
