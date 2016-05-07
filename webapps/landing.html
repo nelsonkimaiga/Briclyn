@@ -19,26 +19,20 @@
         <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
     </head>
     <body>
-        <div class="top-bar">
-            <div class="top-bar-left">
-                <ul class="dropdown menu" data-dropdown-menu>
-                    <li class="menu-text">Briclyn Kenya</li>
-                    <li></li>
-                    <li><a href="index.jsp">Home</a></li>
-                    <li><a href="#">Search</a></li>
-                    <li><a href="register.jsp">Register</a></li>
-                    <li><a href="create-listing.jsp">List Your Property</a></li>
-                    <li><a href="#">Post Your Requirement</a></li>
-                    <li><a href="login.jsp">Login</a></li>
-                </ul>
-            </div>
-            <div class="top-bar-right">
-                <ul class="menu">
-                    <li><input type="search" placeholder="Search"></li>
-                    <li><button type="button" class="button">Search</button></li>
-                </ul>
-            </div>
-        </div>
+	    <nav class="small-6 medium-10 large-12 columns">
+	    	<ul class="nav masthead-nav">
+	        	<li><a href="index.jsp">Home</a></li>
+	        	<li><a href="doSearch.jsp">Search</a></li>
+	             	<%
+	                    	if(sSessonUserID.equals(""))
+	                    	{
+	             	%>
+	        	<li><a href="register.jsp">Register</a></li>
+	                <%}%>
+	        	<li><a href="create-listing.jsp">List Your Property</a></li>
+	        	<li><a href="<%=fileCall%>"><span><%=sSessonUserID%> <%=status%></span></a></li>
+	    	</ul>
+		</nav>
     <br>
         <div class="container">
         </div>
