@@ -65,15 +65,27 @@
 		e.printStackTrace();
 	}
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-<link type="text/css" rel="StyleSheet" href="css/style.css" />
-<link type="text/css" rel="StyleSheet" href="css/menu.css" />
-<title>Pending Approve List</title>
-<script src="js/checkbox.js" type="text/javascript"></script>
-<script>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="Real Estate">
+        <!-- for-mobile-view -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Pending Approve List</title>
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="css/foundation.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <!--foundation icons-->
+        <link rel="stylesheet" type="text/css" href="css/foundation-icons.css">
+        <!--fonts-->
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+        <!--foundation icons cdn-->
+        <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+        <script src="js/checkbox.js" type="text/javascript"></script>
+        <script>
 	function goSubmitPageForm(sPageNo)
 	{
 		  document.frm.cPageNo.value=sPageNo
@@ -110,18 +122,18 @@
 	 }
 	}
 		
-</script> 
-</head>
-
-<body>
-<script>
-	fieldSName("iListID","frm");
 </script>
-<form name="frm">
-<input type="hidden" name="iPageID" value="app">
-<input type="hidden" name="iPageNo" value="<%=iPageNo%>">
-<input type="hidden" name="cPageNo" value="<%=cPageNo%>">
-<input type="hidden" name="iShowRows" value="<%=iShowRows%>">
+    </head>
+    <body>
+        <%@include file="/comman/menu.jsp"%>
+        <script>
+	fieldSName("iListID","frm");
+            </script>
+            <form name="frm">
+                <input type="hidden" name="iPageID" value="app">
+                <input type="hidden" name="iPageNo" value="<%=iPageNo%>">
+                <input type="hidden" name="cPageNo" value="<%=cPageNo%>">
+                <input type="hidden" name="iShowRows" value="<%=iShowRows%>">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="5%">&nbsp;</td>
@@ -135,7 +147,7 @@
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td><%@include file="/comman/menu.jsp"%></td>
+    <td></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
