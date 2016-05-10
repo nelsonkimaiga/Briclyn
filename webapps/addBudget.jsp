@@ -61,11 +61,20 @@ function init()
 {
   document.frm.sBudgetName.focus();
 } 
-</script> 
-</head>
-
-<body onLoad="init()">
-<form name="frm" action="saveBudget.jsp" onSubmit="return validate()">
+</script>
+    </head>
+    <body onLoad="init()">
+        <div class="container">
+            <div class="row">
+                <div class="medium-4 large-4 columns" id="sidemenu">
+                    
+                </div>
+                <div class="medium-8 large-8 columns">
+                    
+                </div>
+            </div>
+        </div>
+        <form name="frm" action="saveBudget.jsp" onSubmit="return validate()">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
     <td width="5%">&nbsp;</td>
