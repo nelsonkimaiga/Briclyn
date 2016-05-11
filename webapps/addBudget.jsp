@@ -67,7 +67,7 @@ function init()
         <div class="container">
             <div class="row">
                 <div class="medium-4 large-4 columns" id="sidemenu">
-                    
+                    <%@include file="/comman/menu.jsp"%>
                 </div>
                 <div class="medium-8 large-8 columns">
                     
@@ -88,7 +88,7 @@ function init()
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td><%@include file="/comman/menu.jsp"%></td>
+    <td></td>
     <td>&nbsp;</td>
   </tr>
   <tr>
