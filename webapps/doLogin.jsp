@@ -28,7 +28,7 @@
 			  session.setAttribute("iUserType",rsOptions.getString("iUserType"));
 			  session.setAttribute("iUserLevel",rsOptions.getString("iUserLevel"));
 			  session.setAttribute("sUsername",rsOptions.getString("sFirstName")+" "+rsOptions.getString("sLastName"));
-			  response.sendRedirect("index.jsp");
+			  response.sendRedirect("search.jsp");
 			}
 			else
 			{
