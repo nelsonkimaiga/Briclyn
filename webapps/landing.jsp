@@ -1,10 +1,12 @@
-<%-- 
+<!-- 
     Document   : landing
     Created on : May 11, 2016, 11:26:36 AM
-    Author     : kimaiga
---%>
+    Author     : kimaiga-->
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%@ page contentType="text/html; charset=iso-8859-1" language="java" import="java.sql.*,java.text.*,java.util.*" errorPage=""%>
+<%--<%@ include file="sessionchk.jsp"%>--%>
+<jsp:useBean id="dbConn" scope="request" class="com.villa.db.DBProperties"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,6 +27,9 @@
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <!--foundation icons cdn-->
         <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+        <!-- Add the slick-theme.css if you want default styling -->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
         <script src="js/vendor/jquery.min.js"></script>
     </head>
     <body>
@@ -36,14 +41,12 @@
             <div class="top-bar-left">
                 <ul class="menu" data-responsive-menu="accordion">
                     <li class="menu-text">Briclyn Ventures</li>
-                    <li><a href="#">Register</a></li>
-                    <li><a href="#">List Your Property</a></li>
-                    <li><a href="#">Three</a></li>
+                    <li><a href="register.jsp">Register</a></li>
                 </ul>
             </div>
             <div class="top-bar-right">
                 <ul class="menu">
-                    <li><a href="#">My Account</a></li>
+                    <li><a href="login.jsp">My Account</a></li>
                     <li><a class="button success">Login</a></li>
                 </ul>
             </div>
@@ -52,9 +55,7 @@
         <div class="row">
             <div class="medium-7 large-6 columns">
                 <h1>Briclyn Ventures</h1>
-                <p class="subheader">Briclyn Ventures is a Kenyan based, international construction service company and is a leading builder in diverse and numerous market segments. We have earned recognition for undertaking large, complex projects, fostering innovation, embracing emerging technologies and making a difference for their clients, employees and community. We offer client the accessibility and support of a local firm with the stability and resource of a local firm with the stability and resource of a multi national organization.</p>
-                <button class="button">Take a Tour</button>
-                <button class="button">Start a free trial</button>
+                <p class="subheader" id="landingheader">Briclyn Ventures is a Kenyan based, international construction service company and is a leading builder in diverse and numerous market segments. We have earned recognition for undertaking large, complex projects, fostering innovation, embracing emerging technologies and making a difference for their clients, employees and community. We offer client the accessibility and support of a local firm with the stability and resource of a local firm with the stability and resource of a multi national organization.</p>
             </div>
             <div class="show-for-large large-3 columns">
                 <img src="http://placehold.it/400x370&text=PSR1257 + 12 C" alt="picture of space">
