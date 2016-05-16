@@ -20,7 +20,7 @@
     <!--<h3 class="masthead-brand"><a href=""><img src="" class="image-logo" alt="Briclyn Kenya"></a></h3>-->
     <nav class="small-6 medium-10 large-12 columns">
     <ul class="nav masthead-nav">
-        <li><a href="index.jsp">Home</a></li>
+        <li><a href="search.jsp">Home</a></li>
         <li><a href="doSearch.jsp">Search</a></li>
              <%
                     if(sSessonUserID.equals(""))
