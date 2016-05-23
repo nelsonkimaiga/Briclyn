@@ -29,8 +29,8 @@
 		String sqlInsertregistration=null;
 		
 		try{
-			sqlInsertregistration="insert into registration (sUserID, sRegEmail, sFirstName, sLastName, iDateBirth, sRegGender,iCountryID, iCityID, iLocation, iUserType, iUserLevel, sPassword, iUserContact,dCreatedDate, sStatus)"
-												+"values(?, ?, ?, ?, ?, ?, ?, ?, ?, 3, ?, password('"+sPassword+"'), ?, sysdate(),'P')";
+			sqlInsertregistration="insert into registration (sUserID, sRegEmail, sFirstName, sLastName, iDateBirth, sRegGender,iCountryID, iCityID, iLocation, iUserType, iUserLevel, sPassword, iUserContact, dCreatedDate)"
+												+"values(?, ?, ?, ?, ?, ?, ?, ?, ?, 3, ?, password('"+sPassword+"'), ?, sysdate())";
 			psInsert=conn.prepareStatement(sqlInsertregistration);
 			psInsert.setString(1,sUserID);
 			psInsert.setString(2,sRegEmail);

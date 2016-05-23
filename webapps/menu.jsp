@@ -32,7 +32,7 @@ if(!(sUserType).equals(""))
 		<li><a href="currency.jsp">Add Currency</a></li>
 		<li><a href="addBudget.jsp">Add Budget</a></li>
 		<li><a href="viewBudget.jsp">Edit Budget</a></li>
-		<li><a href="pendUser.jsp">Pending User</a></li>
+		<!--<li><a href="pendUser.jsp">Pending User</a></li>-->
 		<li><a href="viewforget.jsp">Pending Forget Password</a></li>
 		<li><a href="approveListAdmin.jsp">Add Approval Option List</a></li>
 		<li><a href="approvePostAdmin.jsp">Add Approval Option Post</a></li>

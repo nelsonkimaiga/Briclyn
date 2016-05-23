@@ -16,7 +16,7 @@
 			String message="User login successfully ";
 			String loginYes="";
 			
-		    String sqlOption="SELECT * FROM registration u where sUserID=? and sPassword=password(?) and sStatus='A'";
+		    String sqlOption="SELECT * FROM registration u where sUserID=? and sPassword=password(?)";
       	    psOptions=conn.prepareStatement(sqlOption);
 			psOptions.setString(1,sUserID);
 			psOptions.setString(2,sPassword);
