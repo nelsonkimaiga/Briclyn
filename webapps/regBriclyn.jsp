@@ -73,9 +73,9 @@
     <body>
         <%@include file="/comman/menu.jsp"%>
         <div class="container">
-            <h2>Registration Successfully!</h2>
+            <h2>Registration Done Successfully!</h2>
             <hr>
-            <h3>Your registration is under activation process. Your profile will be reviewed for activation. It usually takes approximately 24 - 48 hours.</h3>
+            <h3>Your profile has been created!</h3>
         </div>
     </body>
 </html>
