@@ -47,8 +47,8 @@
 	
 	
 	try{
-		sqlInsertlist_requirement="insert into list_requirement(sUserID, iTransactionType, iPropertyID, sPropertyAddress, iCityID, iLocalityID, iArea, iTotalPrice, iBedRoom, iNFloor, cPriceNegotiable, cStatus, sCreatedBy, dCreatedDate)"
-									+"values('"+sSessionUserID+"', '"+iTransactionType+"', '"+iPropertyID+"', '"+sPropertyAddress+"', '"+iCityID+"', '"+iLocalityID+"', '"+iArea+"', '"+iTotalPrice+"', '"+iBedroom+"', '"+iNFloor+"', '"+cPriceNegotiable+"','"+appYes+"', '"+sSessionUserID+"', sysdate())";
+		sqlInsertlist_requirement="insert into list_requirement(sUserID, iTransactionType, iPropertyID, sPropertyAddress, iCityID, iLocalityID, iArea, iTotalPrice, iBaths, cStatus, sCreatedBy, dCreatedDate)"
+									+"values('"+sSessionUserID+"', '"+iTransactionType+"', '"+iPropertyID+"', '"+sPropertyAddress+"', '"+iCityID+"', '"+iLocalityID+"', '"+iArea+"', '"+iTotalPrice+"', '"+iBedroom+"', '"+appYes+"', '"+sSessionUserID+"', sysdate())";
 		
 		stList.executeUpdate(sqlInsertlist_requirement);
 	}
@@ -79,8 +79,9 @@
                 <div class="medium-4 large-4 columns" id="sidemenu">
                     <%@include file="menu.jsp" %>
                 </div>
+                <br>
                 <div class="medium-8 large-8 columns">
-                    <h2>Property Listing is saved successfully!</h2>
+                    <h2>Your property listing has been added and saved successfully!</h2>
                 </div>
             </div>
         </div>

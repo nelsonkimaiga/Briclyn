@@ -152,11 +152,11 @@ function isNumberKey(evt)
                                 <input type="text" name="title" placeholder="Property Title">
                             </fieldset>
                             <fieldset>
-                                <label class="labels">Transaction type (E.g Sale or rent?</label>
+                                <label class="labels">Transaction type (E.g for sale or rent)</label>
                                 <select name="tranType">
                                     <option value="default" selected disabled>Select a transaction type</option>
                                     <option value="1">Sell</option>
-                                    <option value="2">Rent / Lease</option>
+                                    <option value="2">Rent</option>
                                 </select>
                             </fieldset>
                             <fieldset>
@@ -207,19 +207,14 @@ function isNumberKey(evt)
                                 </fieldset>
                                     <fieldset>
                                         <label class="labels">Area</label>
-                                        <input type="text" name="iArea" placeholder="Area" onKeyPress="return isNumberKey(event)"/>
+                                        <input type="text" name="iArea" placeholder="Area"/>
                                     </fieldset>
                                     <fieldset>
                                         <label class="labels">Price</label>
                                         <input type="text" name="iTotalPrice" onKeyPress="return isNumberKey(event)"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=sCurrency%>
                                     </fieldset>
                                     <fieldset>
-                                        <label class="labels">Price Negotiable?</label>
-                                        <input name="cPriceNegotiable" type="radio" value="Y" /><label>Yes</label>
-                                        <input name="cPriceNegotiable" type="radio" value="N"  checked="checked"/><label>No</label>
-                                    </fieldset>
-                                    <fieldset>
-                                        <label class="labels">Bedroom</label>
+                                        <label class="labels">Number of Baths</label>
                                         <select name='bedroom'>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -232,24 +227,6 @@ function isNumberKey(evt)
                                             <option value="9">9</option>
                                             <option value="10">10</option>
                                             <option value="11">11+</option>
-                                        </select>
-                                    </fieldset>
-                                    <fieldset>
-                                        <label class="labels">Floor Number</label>
-                                        <select name='floornumber'>
-                                            <option value="1">Basement</option>
-                                            <option value="2">Ground Floor</option>
-                                            <option value="3">1</option>
-                                            <option value="4">2</option>
-                                            <option value="5">3</option>
-                                            <option value="6">4</option>
-                                            <option value="7">5</option>
-                                            <option value="8">6</option>
-                                            <option value="9">7</option>
-                                            <option value="10">8</option>
-                                            <option value="11">9</option>
-                                            <option value="12">10</option>
-                                            <option value="13">10+</option>
                                         </select>
                                     </fieldset>
                                     <button type="submit" name="Submit" value="Save" class="button success">Create Listing</button>
