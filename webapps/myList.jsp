@@ -43,15 +43,7 @@
 		String sqlAppImageURL="SELECT iLAImageID, iListID, bImage FROM list_album where iListID=? and cStatus='A'";
 		psAppImageURL=conn.prepareStatement(sqlAppImageURL);
 		
-		String sqlMyList="SELECT l.iListID, l.sUserID, l.iTransactionType, l.iPropertyID,sPropertyName, l.sPropertyAddress," 
-		                 +" l.iCityID, l.iLocalityID, l.iArea, l.iTotalPrice, l.iBedRoom, l.iNFloor, l.cPriceNegotiable," 
-						 +" l.dCreatedDate,c.iCityName,lc.iLocationName,r.sRegEmail,sFirstName, sLastName,iUserContact "
-						 +"   FROM list_requirement l "
-						 +"    left join citymaster c on c.iCityID=l.iCityID "
-						 +"	   left join locationmaster lc on lc.iLocationID=l.iLocalityID "
-						 +"    left join registration r on r.sUserID=l.sUserID "
-						 +"	   left join propertymaster p on p.iPropertyID=l.iPropertyID "
-						 +"          where l.cStatus='A' and l.sUserID='"+nullconv(sSUserID)+"' order by l.dCreatedDate desc";
+		String sqlMyList="SELECT l.iListID, l.sUserID, l.iTransactionType, l.iPropertyID, l.sPropertyAddress, l.iCityID, l.iLocalityID, l.iArea, l.iTotalPrice, l.iBaths, l.dCreatedDate FROM list_requirement l where l.cStatus='A' and l.sUserID='"+nullconv(sSUserID)+"' order by l.dCreatedDate desc";
 		psMyList=conn.prepareStatement(sqlMyList);
 		rsMyList=psMyList.executeQuery();
 		
@@ -160,17 +152,8 @@
    while(rsMyList.next())
    {
     nextRow=true;
-	
-   String neo=rsMyList.getString("cPriceNegotiable");
+    
    String trans=rsMyList.getString("iTransactionType");
-   if(neo.equalsIgnoreCase("Y"))
-   {
-     neo="Negotiable";
-   }
-   else
-   {
-     neo="Not Negotiable";
-   }
    
    if(trans.equalsIgnoreCase("1"))
    {
@@ -188,9 +171,9 @@
                                            <tbody>
                                                <tr>
                                                    <td class="pd brt brb brl"><input type="checkbox" name="iListID" onClick="selectall()" styleClass="ch" value="<%=iListID%>"/>  <img src="proImage/<%=iListID%>.jpg" id="im<%=iListID%>" onError="onErrorLoad('<%=iListID%>')" onClick="openWindow('<%=iListID%>')" width="90" height="100">&nbsp;</td>
-                                                   <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')"><%=rsMyList.getString("sPropertyName")%> <%=trans%><br> <%=rsMyList.getString("sPropertyAddress")%> <br><%=rsMyList.getString("iCityName")%> <br><%=rsMyList.getString("iLocationName")%></td>
-                                                   <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')">Area <%=rsMyList.getString("iArea")%> sq. ft <br><%=rsMyList.getString("iBedRoom")%> Bedrooms</td>
-                                                   <td class="pd brt brb brl" onclick="goRecord('<%=iListID%>')"><%=sCurrency%> <%=rsMyList.getString("iTotalPrice")%> <br><%=neo%></td>
+                                                   <!--<td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')"><%=rsMyList.getString("sPropertyName")%> <%=trans%><br> <%=rsMyList.getString("sPropertyAddress")%><br><%=rsMyList.getString("iCityName")%> <br><%=rsMyList.getString("iLocation //Name")%></td>-->
+                                                   <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')">Area <%=rsMyList.getString("iArea")%><br><%=rsMyList.getString("iBaths")%>Baths</td>
+                                                   <td class="pd brt brb brl" onclick="goRecord('<%=iListID%>')"><%=sCurrency%> <%=rsMyList.getString("iTotalPrice")%> <br></td>
                                                    <td class="pd brt brb brl brr" onClick="goRecord('<%=iListID%>')">Posted Date: <%=getDateFormat(rsMyList.getTimestamp("dCreatedDate"),"dd.MMM.yyyy hh:mm a")%> <br><br><span style="text-transform:capitalize"><%=rsMyList.getString("sFirstName")%> <%=rsMyList.getString("sLastName")%></span><br> Contact: <%=rsMyList.getString("iUserContact")%><br> Email: <%=rsMyList.getString("sRegEmail")%><br>&nbsp;</td>
                                                </tr>
                                                <tr>

@@ -176,7 +176,7 @@ function isNumberKey(evt)
                             <p class="menu-headings">Pick Location</p>
                             <hr>
                             <fieldset>
-                                <label class="labels">Property Address</label>
+                                <label class="labels">Property Address(E.g Street name)</label>
                                 <input type="text" name="sPropertyAddress"/>
                             </fieldset>
                             <fieldset>
