@@ -10,7 +10,7 @@ if(!(sUserType).equals(""))
    <div class="headers">My Menu</div>
    <ul class="menu vertical" id="sidemenu">
        <li class="active" style="text-align: left;"><a href="myProfile.jsp">My Profile</a></li>
-       <li><a href="myList.jsp">My Listing </a></li>
+       <li><a href="mylist.jsp">My Listing </a></li>
        <li><a href="myResponse.jsp">Response I Got</a></li>
        <li><a href="myPost.jsp">My Posting</a></li>
        <li><a href="sendResponse.jsp">Response I Sent</a></li>

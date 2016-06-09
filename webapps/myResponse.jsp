@@ -64,7 +64,7 @@
                                 <th class="hspry">List ID</th>
                                 <th class="hspry">Subject</th>
                                 <th class="hspry">Message</th>
-                                <th class="hspry">Send By</th>
+                                <th class="hspry">Sent By</th>
                             </tr>                            
                         </thead>
                         <tbody>

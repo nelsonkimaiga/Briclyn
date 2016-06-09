@@ -17,7 +17,7 @@
 	String sCurrency="";
 
 	try{
-		String sqlOption="SELECT l.iListID, l.sUserID, l.iTransactionType, l.iPropertyID,sPropertyName, l.sPropertyAddress, l.iCityID, l.iLocalityID, l.iArea, l.iTotalPrice, l.iBedRoom, l.iNFloor, l.cPriceNegotiable, l.dCreatedDate,c.iCityName,lc.iLocationName,r.sRegEmail,sFirstName, sLastName,iUserContact FROM list_requirement l left join citymaster c on c.iCityID=l.iCityID left join locationmaster lc on lc.iLocationID=l.iLocalityID left join registration r on r.sUserID=l.sUserID left join propertymaster p on p.iPropertyID=l.iPropertyID where l.cStatus='A' and l.iListID="+nullIntconv(iListIDs)+"";
+		String sqlOption="SELECT l.iListID, l.sUserID, l.iTransactionType, l.iPropertyID,sPropertyName, l.sPropertyAddress, l.iCityID, l.iLocalityID, l.iArea, l.iTotalPrice, l.iBedRoom, l.iNFloor, l.cPriceNegotiable, l.dCreatedDate,c.iCityName,lc.iLocationName,r.sRegEmail,sFirstName, sLastName,iUserContact FROM listings l left join citymaster c on c.iCityID=l.iCityID left join locationmaster lc on lc.iLocationID=l.iLocalityID left join registration r on r.sUserID=l.sUserID left join propertymaster p on p.iPropertyID=l.iPropertyID where l.cStatus='A' and l.iListID="+nullIntconv(iListIDs)+"";
 		psOptions=conn.prepareStatement(sqlOption);
 		rsOptions=psOptions.executeQuery();
 		
