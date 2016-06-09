@@ -146,7 +146,7 @@ function isNumberKey(evt)
                 </div>
                 <div class="large-8 columns">
                         <h3 class="menu-headings">List Your Property</h3>
-                        <form name="frm" action="doListing.jsp" method="post" onsubmit="return validate()">
+                        <form name="frm" action="dolist.jsp" method="post" onsubmit="return validate()">
                             <fieldset>
                                 <label class="labels">Title</label>
                                 <input type="text" name="title" placeholder="Property Title">
@@ -167,7 +167,7 @@ function isNumberKey(evt)
                                     while (rsProperty.next())
                                     {
                                 %>
-                                <option value="<%=rsProperty.getInt("iPropertyID") %>"><%=rsProperty.getString("sPropertyName")%></option>
+                                <option value="<%=rsProperty.getString("sPropertyName") %>"><%=rsProperty.getString("sPropertyName")%></option>
                                 <%}
 		  %>
                                 </select>
@@ -187,7 +187,7 @@ function isNumberKey(evt)
                                     while (rsCity.next())
                                     {
                                 %>
-                                    <option value="<%=rsCity.getInt("iCityID") %>"><%=rsCity.getString("iCityName")%></option>
+                                    <option value="<%=rsCity.getString("iCityName") %>"><%=rsCity.getString("iCityName")%></option>
                                 <%}
                                 %>
                                 </select>
@@ -200,7 +200,7 @@ function isNumberKey(evt)
                                     while (rsLocation.next())
                                     {
                                 %>
-                                        <option value="<%=rsLocation.getInt("iLocationID") %>"><%=rsLocation.getString("iLocationName")%></option>
+                                        <option value="<%=rsLocation.getString("iLocationName") %>"><%=rsLocation.getString("iLocationName")%></option>
                                 <%}
                                 %>
                                     </select>
