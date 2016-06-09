@@ -10,6 +10,10 @@
 	
 	ResultSet rsMyList=null;
 	PreparedStatement psMyList=null;
+        ResultSet rsPropertyName = null;
+        PreparedStatement psPropertyName = null;
+        ResultSet rsCityName = null;
+        PreparedStatement psCityName = null;
 	PreparedStatement psCurrency=null;
 	ResultSet rsCurrency=null;
 	
@@ -46,6 +50,16 @@
 		String sqlMyList="SELECT l.iListID, l.sUserID, l.iTransactionType, l.iPropertyID, l.sPropertyAddress, l.iCityID, l.iLocalityID, l.iArea, l.iTotalPrice, l.iBaths, l.dCreatedDate FROM list_requirement l where l.cStatus='A' and l.sUserID='"+nullconv(sSUserID)+"' order by l.dCreatedDate desc";
 		psMyList=conn.prepareStatement(sqlMyList);
 		rsMyList=psMyList.executeQuery();
+                
+                //query for fetching property names
+                String sqlPropertyName="SELECT sPropertyName from propertymaster";
+                psPropertyName=conn.prepareStatement(sqlPropertyName);
+                rsPropertyName=psPropertyName.executeQuery();
+                
+                //query for fetching city names
+                String sqlCityName="SELECT iCityName from citymaster";
+                psCityName=conn.prepareStatement(sqlCityName);
+                rsCityName=psPropertyName.executeQuery();
 		
 		String sqlCurrency="SELECT sCurrencyName, sSymbol FROM currency b where sStatus='A'";
 		psCurrency=conn.prepareStatement(sqlCurrency);
@@ -171,7 +185,7 @@
                                            <tbody>
                                                <tr>
                                                    <td class="pd brt brb brl"><input type="checkbox" name="iListID" onClick="selectall()" styleClass="ch" value="<%=iListID%>"/>  <img src="proImage/<%=iListID%>.jpg" id="im<%=iListID%>" onError="onErrorLoad('<%=iListID%>')" onClick="openWindow('<%=iListID%>')" width="90" height="100">&nbsp;</td>
-                                                   <!--<td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')"><%=rsMyList.getString("sPropertyName")%> <%=trans%><br> <%=rsMyList.getString("sPropertyAddress")%><br><%=rsMyList.getString("iCityName")%> <br><%=rsMyList.getString("iLocation //Name")%></td>-->
+                                                   <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')"><%=rsMyList.getString("sPropertyID")%> <%=trans%><br> <%=rsPropertyName.getString("sPropertyAddress")%><br><%=rsMyList.getString("iCityName")%> <br><%=rsMyList.getString("iLocation //Name")%></td>
                                                    <td class="pd brt brb brl" onClick="goRecord('<%=iListID%>')">Area <%=rsMyList.getString("iArea")%><br><%=rsMyList.getString("iBaths")%>Baths</td>
                                                    <td class="pd brt brb brl" onclick="goRecord('<%=iListID%>')"><%=sCurrency%> <%=rsMyList.getString("iTotalPrice")%> <br></td>
                                                    <td class="pd brt brb brl brr" onClick="goRecord('<%=iListID%>')">Posted Date: <%=getDateFormat(rsMyList.getTimestamp("dCreatedDate"),"dd.MMM.yyyy hh:mm a")%> <br><br><span style="text-transform:capitalize"><%=rsMyList.getString("sFirstName")%> <%=rsMyList.getString("sLastName")%></span><br> Contact: <%=rsMyList.getString("iUserContact")%><br> Email: <%=rsMyList.getString("sRegEmail")%><br>&nbsp;</td>
