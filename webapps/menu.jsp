@@ -48,7 +48,7 @@ if(!(sUserType).equals(""))
   <div class="headers">My Menu/div>
 <ul class="menu vertical" id="sidemenu">
 		<li class="active"><a href="myProfile.jsp">My Profile</a></li>
-		<li><a href="myList.jsp">My Listing </a></li>
+		<li><a href="mylist.jsp">My Listing </a></li>
 		<li><a href="myResponse.jsp">Response I Got</a></li>
 		<li><a href="myPost.jsp">My Posting</a></li>
 		<li><a href="sendResponse.jsp">Response I Sent</a></li>
@@ -79,7 +79,7 @@ if(!(sUserType).equals(""))
   <div class="headers">My Menu</div>
 <ul class="menu vertical" id="sidemenu">
 		<li class="active"><a href="myProfile.jsp">My Profile</a></li>
-		<li><a href="myList.jsp">My Listing </a></li>
+		<li><a href="mylist.jsp">My Listing </a></li>
 		<li><a href="myResponse.jsp">Response I Got</a></li>
 		<li><a href="myPost.jsp">My Posting</a></li>
 		<li><a href="sendResponse.jsp">Response I Sent</a></li>

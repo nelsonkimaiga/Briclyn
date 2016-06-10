@@ -106,11 +106,11 @@
 		history.back();
 	}
 	
-	function goRecord(iListID)
-	{
-	  var pathURL="deleteList.jsp";
-	  window.open(pathURL+"?iListID="+iListID,"_self");
-	}
+//	function goRecord(iListID)
+//	{
+//	  var pathURL="deleteList.jsp";
+//	  window.open(pathURL+"?iListID="+iListID,"_self");
+//	}
 	
 	function goSubmitForm()
 	{

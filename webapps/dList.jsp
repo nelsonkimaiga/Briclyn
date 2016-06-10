@@ -29,7 +29,7 @@ String[] chbx;
 		 String reDirectPage="/searchRes.jsp";
 		 if(iPageID.equalsIgnoreCase("My"))
 		 {
-		  reDirectPage="/myList.jsp"; 
+		  reDirectPage="/mylist.jsp"; 
 		 }
 		 else if(iPageID.equalsIgnoreCase("app"))
 		 {
@@ -38,7 +38,7 @@ String[] chbx;
 	
 	chbx=request.getParameterValues("iListID");
 	try{
-		String sqlProperty="DELETE FROM list_requirement where iListID in("+arrayToString(chbx,",")+")";
+		String sqlProperty="DELETE FROM listings where iListID in("+arrayToString(chbx,",")+")";
 		psProperty=conn.prepareStatement(sqlProperty);
 		psProperty.executeUpdate();
 		

@@ -17,7 +17,7 @@
 	String sCurrency="";
 
 	try{
-		String sqlOption="SELECT l.iListID, l.sUserID, l.iTransactionType, l.iPropertyID,sPropertyName, l.sPropertyAddress, l.iCityID, l.iLocalityID, l.iArea, l.iTotalPrice, l.iBedRoom, l.iNFloor, l.cPriceNegotiable, l.dCreatedDate,c.iCityName,lc.iLocationName,r.sRegEmail,sFirstName, sLastName,iUserContact FROM listings l left join citymaster c on c.iCityID=l.iCityID left join locationmaster lc on lc.iLocationID=l.iLocalityID left join registration r on r.sUserID=l.sUserID left join propertymaster p on p.iPropertyID=l.iPropertyID where l.cStatus='A' and l.iListID="+nullIntconv(iListIDs)+"";
+		String sqlOption="SELECT l.iListID, l.sUserID, l.iTransactionType, l.iPropertyID, l.sPropertyAddress, l.iCityID, l.iLocalityID, l.iArea, l.iTotalPrice, l.iBaths, l.dCreatedDate, l.iCityID, l.iLocationID FROM listings l where l.cStatus='A' and l.iListID="+nullIntconv(iListIDs)+"";
 		psOptions=conn.prepareStatement(sqlOption);
 		rsOptions=psOptions.executeQuery();
 		
@@ -120,16 +120,7 @@
         <%
    if(rsOptions.next())
    {
-   String neo=rsOptions.getString("cPriceNegotiable");
    String trans=rsOptions.getString("iTransactionType");
-   if(neo.equalsIgnoreCase("Y"))
-   {
-     neo="Negotiable";
-   }
-   else
-   {
-     neo="Not Negotiable";
-   }
    
    if(trans.equalsIgnoreCase("1"))
    {
@@ -145,17 +136,13 @@
           <td class="pd"><img src="proImage/<%=iListID%>.jpg" id="im<%=iListID%>" onError="onErrorLoad('<%=iListID%>')" width="90" height="100">&nbsp;</td>
           <td class="pd"><%=rsOptions.getString("sPropertyName")%> <%=trans%><br>
             <%=rsOptions.getString("sPropertyAddress")%> <br>
-            <%=rsOptions.getString("iCityName")%> <br>
-            <%=rsOptions.getString("iLocationName")%></td>
-          <td class="pd">Area <%=rsOptions.getString("iArea")%> sq. ft <br>
-            <%=rsOptions.getString("iBedRoom")%> Bedrooms</td>
+            <%=rsOptions.getString("iCityID")%> <br>
+            <%=rsOptions.getString("iLocalityID")%></td>
+          <td class="pd">Area <%=rsOptions.getString("iArea")%>  <br>
+            <%=rsOptions.getString("iBaths")%> Baths</td>
           <td class="pd"><%=sCurrency%> <%=rsOptions.getString("iTotalPrice")%> <br>
-            <%=neo%></td>
+          </td>
           <td class="pd">Posted Date: <%=getDateFormat(rsOptions.getTimestamp("dCreatedDate"),"dd.MMM.yyyy hh:mm a")%> <br>
-            <br>
-            <span style="text-transform:capitalize"><%=rsOptions.getString("sFirstName")%> <%=rsOptions.getString("sLastName")%></span><br>
-            Contact: <%=rsOptions.getString("iUserContact")%><br>
-            Email: <%=rsOptions.getString("sRegEmail")%><br>
             &nbsp;</td>
         </tr>
         <%}%>
