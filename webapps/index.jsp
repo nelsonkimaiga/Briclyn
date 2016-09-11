@@ -21,11 +21,9 @@
         <link rel="stylesheet" type="text/css" href="css/animate.css">
             <!--foundation icons-->
         <link rel="stylesheet" type="text/css" href="css/foundation-icons.css">
-    <!-- Fancy box CSS -->
-        <link href="css/jquery.fancybox.css" rel="stylesheet">
-    <!--fonts-->
+        <!--fonts-->
         <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <!--foundation icons cdn-->
+        <!--foundation icons cdn-->
         <link href='https://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
         <!-- Add the slick-theme.css if you want default styling -->
@@ -46,8 +44,8 @@
             </div>
             <div class="top-bar-right">
                 <ul class="menu">
-                    <li><a href="login.jsp">My Account</a></li>
-                    <li><a class="button success">Login</a></li>
+                    <li><a href="">My Account</a></li>
+                    <li><a class="button success" href="login.jsp">Login</a></li>
                 </ul>
             </div>
         </div>
