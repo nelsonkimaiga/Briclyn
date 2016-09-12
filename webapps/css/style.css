@@ -24,6 +24,15 @@ h6{
   margin-left: auto;
 }
 
+/*a{
+    color: #191919;
+    text-decoration: none;
+}*/
+
+ul{
+    list-style: none;
+}
+
 /*responsive navbar*/
 .nav-center,
 .center{
@@ -34,7 +43,7 @@ h6{
 }
 
 .nav{
-    background: #ffffff;
+    background: #eeeeee;
     min-height: 50px;
     position: fixed;
     width: 100%;
@@ -195,8 +204,8 @@ table,td {
 	}
 
 p {
-	MARGIN-TOP: 0px;
-	MARGIN-BOTTOM: 10px;
+	margin-top:  100px;
+	margin-bottom: 10px;
 	}
 
 form {
